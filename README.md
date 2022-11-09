@@ -1,2 +1,0 @@
-# DiamondBusiness
-School project
