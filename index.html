@@ -116,10 +116,13 @@
             <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
               <small class="fa fa-search text-body"></small>
             </a>
-            <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+            <a id="loginpupup" class="btn-sm-square bg-white rounded-circle ms-3" href="#" onclick="document.getElementById('id01').style.display='block'">
               <small class="fa fa-user text-body"></small>
             </a>
-            <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+            <a id="logoutbtn" class="btn-sm-square bg-white rounded-circle ms-3" style="display:none;" href="#" onclick="logout()">
+              <small class="fas fa-sign-out-alt text-body"></small>
+            </a>
+            <a class="btn-sm-square bg-white rounded-circle ms-3" href="#" onclick="document.getElementById('modal-cart').style.display='block'">
               <small class="fa fa-shopping-bag text-body"></small>
             </a>
           </div>
@@ -127,6 +130,114 @@
       </nav>
     </div>
     <!-- Navbar End -->
+
+    <!-- login form -->
+    <div id="id01" class="modal">
+      <form class="modal-content animate" method="post">
+          <div class="imgcontainer">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+              <img src="img/user.jpg" alt="Avatar" class="avatar">
+          </div>
+          
+          <div class="container">
+              <form action="">
+                  <label for="uname"><b>Username</b></label>
+                  <input id="usernamedn" type="text" placeholder="Enter Username" name="uname" required>
+          
+                  <label for="psw"><b>Password</b></label>
+                  <input id= "passdn" type="password" placeholder="Enter Password" name="psw" required>
+                  
+                  <button type="button" onclick="login()">Login</button>
+                  <p id="result">Welcome Login...</p>
+                  <button type="button" onclick="signupform()">Chưa có tài khoản</button>
+                  <label>
+                  <input type="checkbox" unchecked="checked" name="remember"> Remember me
+                  </label>
+              </form>
+          </div>
+      </form>
+    </div>
+
+    <!-- signupform -->
+    <div id="dk" class="formdk">
+      <form class="formdk-class"  method="post">
+          <form method="post" action="xuly.php">
+              <div class="imgcontainer">
+                  <span onclick="document.getElementById('dk').style.display='none'" class="close" title="Close Modal">&times;</span>
+                  <img src="img/user.jpg" alt="Avatar" class="avatar">
+              </div>
+              <div class="tb-dk">
+                      <table >
+                          <tr>
+                              <td>Username</td>
+                              <td><input  type="text" placeholder="Username" id="usernamedk" value=""/></td>
+                          </tr>
+                          <tr>
+                              <td>Password</td>
+                              <td><input type="password" placeholder="Password" id="passdk" value=""/></td>
+                          </tr>
+                          <tr>
+                              <td>Email</td>
+                              <td><input type="text" placeholder="a@gmai.com" id="emaildk" ></td>
+                          </tr>
+                          <tr>
+                              <td>Phone</td>
+                              <td><input type="text" placeholder="Phone number" name="phone" id="phonedk" value=""/></td>
+                          </tr>
+                          <tr>
+                              <td>Address</td>
+                              <td><input type="text" placeholder="273 An Dương Vương " name="address" id="address" value=""/></td>
+                          </tr>
+                          <tr>
+                              <td><button style="" type="button" onclick="loginform()">Đã có tài khoản </button></td>
+                              <td><button type="button" onclick="signup()">Đăng ký</button></td>
+                          </tr>
+                      </table>
+              </div>
+              
+          </form>
+      </form>
+    </div>
+
+    <!-- Modal Cart Product -->
+    <div id="modal-cart" class="modal-cart">
+      <span onclick="document.getElementById('modal-cart').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <div class="modal-cart-top">
+          <h3>Giỏ hàng của bạn có<p id="length-num" > 0 </p>sản phẩm</h3>
+      </div>
+      <div class="modal-wrapper">
+          <div class="modal-cart-bottom">
+              <div class="cart-table">
+                  <table class="cart-table-list">
+                      <img src="./assets/img/empty-cart.png" alt="" class="emty-cart">
+                      <tr> 
+                          <th width="480px" height="40px" >Sản phẩm</th>
+                          <th  width= "170px">Đơn giá</th>
+                          <th width= "170px">Số lượng</th>
+                          <th width= "170px">Thành tiền</th>
+                      </tr>                        
+                  </table>
+              </div>
+          </div>
+  
+          <div class="sum-total">
+              <p>Tổng tiền thanh toán: </p>
+              <h5 id="number-total">0</h5>
+          </div>
+
+          <br>
+  
+          <div class="cart-button">
+                <a href="#" class="btn btn-modal-cart">
+                    <p class="thanhtoan" >Thực hiện thanh toán</p>
+                </a>
+  
+                <a href="#" class="btn btn-modal-cart">
+                    <p>Tiếp tục mua hàng</p>
+                </a>
+          </div>
+      </div>
+  </div>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">

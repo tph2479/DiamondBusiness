@@ -77,3 +77,126 @@
     
 })(jQuery);
 
+function signupform() {
+    document.getElementById('dk').style.display='block';
+    document.getElementById('id01').style.display='none';
+}
+
+function loginform() {
+    document.getElementById('id01').style.display='block';
+    document.getElementById('dk').style.display='none';
+}
+
+let userArray = [];
+let adminArray = [];
+
+function signup(e) {
+    var usernamedk = document.getElementById("usernamedk").value;
+    var passdk = document.getElementById("passdk").value;
+    var emaildk = document.getElementById("emaildk").value;
+    var phonedk = document.getElementById("phonedk").value;
+    var address = document.getElementById("address").value;
+
+    var user = {
+        username: usernamedk,
+        password:  passdk,
+        email: emaildk,
+        phone: phonedk,
+        address: address,
+        typeUser: "member"
+    }
+
+    localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
+    userArray.push(user);
+    alert("Đăng kí thành công");
+    window.location.reload();
+}
+
+function login() {
+    var username = document.getElementById("usernamedn").value;
+    var password = document.getElementById("passdn").value;
+    var result = document.getElementById("result").value;
+
+    let userGetLocal = [];
+    for(let i = 1; i < localStorage.length; i++) {
+        let temp = localStorage.getItem(`user${i}`);
+        if(temp) {
+            userGetLocal.push(JSON.parse(temp));
+        }
+    }
+    userGetLocal.push(JSON.parse(localStorage.getItem('admin0')));
+    console.log('admin0');
+
+    var check = 0;
+    for (i = 0; i < userGetLocal.length; i++)
+        if (userGetLocal[i].username == username && userGetLocal[i].password == password) {
+            if (username == "admin") {
+                window.location = "contact.html";
+                console.log("Đăng nhập admin thành công");
+                check = 1;
+            } else {
+                alert("Đăng nhập thành công");
+                check = 1;
+                localStorage.setItem('flag', 1);
+
+                document.addEventListener("click", function() {
+                        document.getElementById("loginpupup").style.display = "none";
+                        document.querySelector(".modal").style.display = "none";
+                        window.location.reload();
+                    })
+            }
+        }
+    if (check == 0) alert('Đăng nhập thất bại');
+}
+
+function logout() {
+
+    document.getElementById("logoutbtn").addEventListener("click", function() {
+        window.localStorage.removeItem('flag');//xoa muc luu tru duoc tri dinh
+        // window.localStorage.removeItem('danhsachItemGioHang');
+
+        window.location.reload();
+    })
+}
+
+function CreateAdmin() {
+    if (localStorage.getItem('admin') == null) {
+        var user = {
+            username: 'admin',
+            password: 'admin',
+            email: 'admin@gmail.com',
+            phone: '0123456789',
+            address: '273 An Dương Vương Phường 3 Quận 5',
+            typeUser: 'admin'
+            
+        };
+        localStorage.setItem(`admin${userArray.length}`, JSON.stringify(user));
+        userArray.push(user);
+    }
+    if (localStorage.getItem('user') == null) {
+        var user = {
+            username: 'user',
+            password: '123',
+            email: 'user@gmail.com',
+            phone: '0123456789',
+            address: '217 Võ Thị Sáu Phường 7 Quận 3',
+            typeUser: 'member'
+        };
+        localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
+        userArray.push(user);
+    }
+}
+
+function keepitreal() {
+
+    if (localStorage.getItem('flag') != null) {
+        document.getElementById("loginpupup").style.display = "none";
+        document.getElementById("logoutbtn").style.display = "flex";
+    }
+
+}
+
+window.onload = function() {
+    CreateAdmin();
+    keepitreal();
+}
