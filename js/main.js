@@ -131,7 +131,7 @@ function login() {
     for (i = 0; i < userGetLocal.length; i++)
         if (userGetLocal[i].username == username && userGetLocal[i].password == password) {
             if (username == "admin") {
-                window.location = "contact.html";
+                window.location = "admin.html";
                 console.log("Đăng nhập admin thành công");
                 check = 1;
             } else {
@@ -142,7 +142,7 @@ function login() {
                 document.addEventListener("click", function() {
                         document.getElementById("loginpupup").style.display = "none";
                         document.querySelector(".modal").style.display = "none";
-                        window.location.reload();
+                        window.location = "index.html";
                     })
             }
         }
