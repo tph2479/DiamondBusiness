@@ -106,9 +106,9 @@
                 >Sản phẩm</a
               >
               <div class="dropdown-menu m-0">
-                <a href="blog.html" class="dropdown-item">Loại A</a>
-                <a href="feature.html" class="dropdown-item">Loại B</a>
-                <a href="testimonial.html" class="dropdown-item">Loại C</a>
+                <a href="blog.html" class="dropdown-item">Kim cương</a>
+                <a href="feature.html" class="dropdown-item">Vàng</a>
+                <a href="testimonial.html" class="dropdown-item">Đá màu</a>
               </div>
             </div>
           </div>
@@ -116,13 +116,28 @@
             <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
               <small class="fa fa-search text-body"></small>
             </a>
-            <a id="loginpupup" class="btn-sm-square bg-white rounded-circle ms-3" href="#" onclick="document.getElementById('id01').style.display='block'">
+            <a
+              id="loginpupup"
+              class="btn-sm-square bg-white rounded-circle ms-3"
+              href="#"
+              onclick="document.getElementById('id01').style.display='block'"
+            >
               <small class="fa fa-user text-body"></small>
             </a>
-            <a id="logoutbtn" class="btn-sm-square bg-white rounded-circle ms-3" style="display:none;" href="#" onclick="logout()">
+            <a
+              id="logoutbtn"
+              class="btn-sm-square bg-white rounded-circle ms-3"
+              style="display: none"
+              href="#"
+              onclick="logout()"
+            >
               <small class="fas fa-sign-out-alt text-body"></small>
             </a>
-            <a class="btn-sm-square bg-white rounded-circle ms-3" href="#" onclick="document.getElementById('modal-cart').style.display='block'">
+            <a
+              class="btn-sm-square bg-white rounded-circle ms-3"
+              href="#"
+              onclick="document.getElementById('modal-cart').style.display='block'"
+            >
               <small class="fa fa-shopping-bag text-body"></small>
             </a>
           </div>
@@ -134,110 +149,181 @@
     <!-- login form -->
     <div id="id01" class="modal">
       <form class="modal-content animate" method="post">
-          <div class="imgcontainer">
-              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-              <img src="img/user.jpg" alt="Avatar" class="avatar">
-          </div>
-          
-          <div class="container">
-              <form action="">
-                  <label for="uname"><b>Username</b></label>
-                  <input id="usernamedn" type="text" placeholder="Enter Username" name="uname" required>
-          
-                  <label for="psw"><b>Password</b></label>
-                  <input id= "passdn" type="password" placeholder="Enter Password" name="psw" required>
-                  
-                  <button type="button" onclick="login()">Login</button>
-                  <p id="result">Welcome Login...</p>
-                  <button type="button" onclick="signupform()">Chưa có tài khoản</button>
-                  <label>
-                  <input type="checkbox" unchecked="checked" name="remember"> Remember me
-                  </label>
-              </form>
-          </div>
+        <div class="imgcontainer">
+          <span
+            onclick="document.getElementById('id01').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+          <img src="img/user.jpg" alt="Avatar" class="avatar" />
+        </div>
+
+        <div class="container">
+          <form action="">
+            <label for="uname"><b>Username</b></label>
+            <input
+              id="usernamedn"
+              type="text"
+              placeholder="Enter Username"
+              name="uname"
+              required
+            />
+
+            <label for="psw"><b>Password</b></label>
+            <input
+              id="passdn"
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              required
+            />
+
+            <button type="button" onclick="login()">Login</button>
+            <p id="result">Welcome Login...</p>
+            <button type="button" onclick="signupform()">
+              Chưa có tài khoản
+            </button>
+            <label>
+              <input type="checkbox" unchecked="checked" name="remember" />
+              Remember me
+            </label>
+          </form>
+        </div>
       </form>
     </div>
 
     <!-- signupform -->
     <div id="dk" class="formdk">
-      <form class="formdk-class"  method="post">
-          <form method="post" action="xuly.php">
-              <div class="imgcontainer">
-                  <span onclick="document.getElementById('dk').style.display='none'" class="close" title="Close Modal">&times;</span>
-                  <img src="img/user.jpg" alt="Avatar" class="avatar">
-              </div>
-              <div class="tb-dk">
-                      <table >
-                          <tr>
-                              <td>Username</td>
-                              <td><input  type="text" placeholder="Username" id="usernamedk" value=""/></td>
-                          </tr>
-                          <tr>
-                              <td>Password</td>
-                              <td><input type="password" placeholder="Password" id="passdk" value=""/></td>
-                          </tr>
-                          <tr>
-                              <td>Email</td>
-                              <td><input type="text" placeholder="a@gmai.com" id="emaildk" ></td>
-                          </tr>
-                          <tr>
-                              <td>Phone</td>
-                              <td><input type="text" placeholder="Phone number" name="phone" id="phonedk" value=""/></td>
-                          </tr>
-                          <tr>
-                              <td>Address</td>
-                              <td><input type="text" placeholder="273 An Dương Vương " name="address" id="address" value=""/></td>
-                          </tr>
-                          <tr>
-                              <td><button style="" type="button" onclick="loginform()">Đã có tài khoản </button></td>
-                              <td><button type="button" onclick="signup()">Đăng ký</button></td>
-                          </tr>
-                      </table>
-              </div>
-              
-          </form>
+      <form class="formdk-class" method="post">
+        <form method="post" action="xuly.php">
+          <div class="imgcontainer">
+            <span
+              onclick="document.getElementById('dk').style.display='none'"
+              class="close"
+              title="Close Modal"
+              >&times;</span
+            >
+            <img src="img/user.jpg" alt="Avatar" class="avatar" />
+          </div>
+          <div class="tb-dk">
+            <table>
+              <tr>
+                <td>Username</td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Username"
+                    id="usernamedk"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Password</td>
+                <td>
+                  <input
+                    type="password"
+                    placeholder="Password"
+                    id="passdk"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Email</td>
+                <td>
+                  <input type="text" placeholder="a@gmai.com" id="emaildk" />
+                </td>
+              </tr>
+              <tr>
+                <td>Phone</td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="Phone number"
+                    name="phone"
+                    id="phonedk"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Address</td>
+                <td>
+                  <input
+                    type="text"
+                    placeholder="273 An Dương Vương "
+                    name="address"
+                    id="address"
+                    value=""
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button style="" type="button" onclick="loginform()">
+                    Đã có tài khoản
+                  </button>
+                </td>
+                <td>
+                  <button type="button" onclick="signup()">Đăng ký</button>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </form>
       </form>
     </div>
 
     <!-- Modal Cart Product -->
     <div id="modal-cart" class="modal-cart">
-      <span onclick="document.getElementById('modal-cart').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <span
+        onclick="document.getElementById('modal-cart').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >&times;</span
+      >
       <div class="modal-cart-top">
-          <h3>Giỏ hàng của bạn có<p id="length-num" > 0 </p>sản phẩm</h3>
+        <h3>
+          Giỏ hàng của bạn có
+          <p id="length-num">0</p>
+          sản phẩm
+        </h3>
       </div>
       <div class="modal-wrapper">
-          <div class="modal-cart-bottom">
-              <div class="cart-table">
-                  <table class="cart-table-list">
-                      <img src="./assets/img/empty-cart.png" alt="" class="emty-cart">
-                      <tr> 
-                          <th width="480px" height="40px" >Sản phẩm</th>
-                          <th  width= "170px">Đơn giá</th>
-                          <th width= "170px">Số lượng</th>
-                          <th width= "170px">Thành tiền</th>
-                      </tr>                        
-                  </table>
-              </div>
+        <div class="modal-cart-bottom">
+          <div class="cart-table">
+            <table class="cart-table-list">
+              <img src="./assets/img/empty-cart.png" alt="" class="emty-cart" />
+              <tr>
+                <th width="480px" height="40px">Sản phẩm</th>
+                <th width="170px">Đơn giá</th>
+                <th width="170px">Số lượng</th>
+                <th width="170px">Thành tiền</th>
+              </tr>
+            </table>
           </div>
-  
-          <div class="sum-total">
-              <p>Tổng tiền thanh toán: </p>
-              <h5 id="number-total">0</h5>
-          </div>
+        </div>
 
-          <br>
-  
-          <div class="cart-button">
-                <a href="#" class="btn btn-modal-cart">
-                    <p class="thanhtoan" >Thực hiện thanh toán</p>
-                </a>
-  
-                <a href="#" class="btn btn-modal-cart">
-                    <p>Tiếp tục mua hàng</p>
-                </a>
-          </div>
+        <div class="sum-total">
+          <p>Tổng tiền thanh toán:</p>
+          <h5 id="number-total">0</h5>
+        </div>
+
+        <br />
+
+        <div class="cart-button">
+          <a href="#" class="btn btn-modal-cart">
+            <p class="thanhtoan">Thực hiện thanh toán</p>
+          </a>
+
+          <a href="#" class="btn btn-modal-cart">
+            <p>Tiếp tục mua hàng</p>
+          </a>
+        </div>
       </div>
-  </div>
+    </div>
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 mb-5 wow fadeIn" data-wow-delay="0.1s">
@@ -318,7 +404,9 @@
               <i class="fa fa-check text-primary me-3"></i>Lợi ích khách hàng
               được cam kết đảm bảo.
             </p>
-            <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="contact.html"
+            <a
+              class="btn btn-primary rounded-pill py-3 px-5 mt-3"
+              href="contact.html"
               >Tìm hiểu thêm</a
             >
           </div>
@@ -650,9 +738,9 @@
                     <a class="d-block h5 mb-2" href=""
                       >Nhẫn Kim cương FDR0018</a
                     >
-                    <span class="text-primary me-1">$31.500.000đ</span>
+                    <span class="text-primary me-1">31,500,000đ</span>
                     <span class="text-body text-decoration-line-through"
-                      >33.400.000đ</span
+                      >33,400,000đ</span
                     >
                   </div>
                   <div class="d-flex border-top">
@@ -692,9 +780,9 @@
                     <a class="d-block h5 mb-2" href=""
                       >Hoa tai kim cương FDE0015</a
                     >
-                    <span class="text-primary me-1">44.490.000đ</span>
+                    <span class="text-primary me-1">44,490,000đ</span>
                     <span class="text-body text-decoration-line-through"
-                      >45.200.000đ</span
+                      >45,200,000đ</span
                     >
                   </div>
                   <div class="d-flex border-top">
@@ -780,8 +868,7 @@
                     <a class="d-block h5 mb-2" href=""
                       >Hoa tai Kim cương FDE0233</a
                     >
-                    <span class="text-primary me-1">43.780.000đ</span>
-                    >
+                    <span class="text-primary me-1">43,780,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1015,42 +1102,6 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="product-item">
-                  <div class="position-relative bg-light overflow-hidden">
-                    <img
-                      class="img-fluid w-100"
-                      src="img/product-16.jpg"
-                      alt=""
-                    />
-                    <div
-                      class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-                    >
-                      New
-                    </div>
-                  </div>
-                  <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href=""
-                      >Nhẫn kim cương FDR3310</a
-                    >
-                    <span class="text-primary me-1">49,040,000đ</span>
-                  </div>
-                  <div class="d-flex border-top">
-                    <small class="w-50 text-center border-end py-2">
-                      <a class="text-body" href=""
-                        ><i class="fa fa-eye text-primary me-2"></i>View
-                        detail</a
-                      >
-                    </small>
-                    <small class="w-50 text-center py-2">
-                      <a class="text-body" href=""
-                        ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-                        to cart</a
-                      >
-                    </small>
-                  </div>
-                </div>
-              </div>
               <div class="col-12 text-center">
                 <a class="btn btn-primary rounded-pill py-3 px-5" href=""
                   >Browse More Products</a
@@ -1066,7 +1117,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-1.jpg"
+                      src="img/product-25.jpg"
                       alt=""
                     />
                     <div
@@ -1076,11 +1127,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Vòng charrm CB60035DD</a>
+                    <span class="text-primary me-1">3,900,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1103,7 +1151,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-2.jpg"
+                      src="img/product-26.jpg"
                       alt=""
                     />
                     <div
@@ -1113,11 +1161,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Ghim cài áo Cúc họa mi LH60011</a
                     >
+                    <span class="text-primary me-1">9,090,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1140,7 +1187,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-3.jpg"
+                      src="img/product-27.jpg"
                       alt=""
                     />
                     <div
@@ -1150,11 +1197,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Dây vàng collier LN000256</a
                     >
+                    <span class="text-primary me-1">5,630,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1177,7 +1223,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-4.jpg"
+                      src="img/product-28.jpg"
                       alt=""
                     />
                     <div
@@ -1187,11 +1233,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Ghim cài áo Cúc họa mi LH60011</a
                     >
+                    <span class="text-primary me-1">5,590,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1214,7 +1259,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-5.jpg"
+                      src="img/product-29.jpg"
                       alt=""
                     />
                     <div
@@ -1224,11 +1269,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Dây chữ Vạn FP60695</a>
+                    <span class="text-primary me-1">4,100,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1251,7 +1293,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-6.jpg"
+                      src="img/product-30.jpg"
                       alt=""
                     />
                     <div
@@ -1261,11 +1303,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Dây chữ Vạn MP6023</a>
+                    <span class="text-primary me-1">4,200,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1288,7 +1327,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-7.jpg"
+                      src="img/product-31.jpg"
                       alt=""
                     />
                     <div
@@ -1298,11 +1337,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Lắc tay LB90120</a>
+                    <span class="text-primary me-1">18,900,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1325,7 +1361,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-8.jpg"
+                      src="img/product-32.jpg"
                       alt=""
                     />
                     <div
@@ -1335,11 +1371,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Lắc tay LB90122</a>
+                    <span class="text-primary me-1">14,900,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1370,7 +1403,11 @@
               <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="product-item">
                   <div class="position-relative bg-light overflow-hidden">
-                    <img class="img-fluid w-100" src="img/blog-2.jpg" alt="" />
+                    <img
+                      class="img-fluid w-100"
+                      src="img/product-33.jpg"
+                      alt=""
+                    />
                     <div
                       class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
                     >
@@ -1378,11 +1415,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Hoa tai Citrine GJE473</a
                     >
+                    <span class="text-primary me-1">9,280,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1405,7 +1441,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-2.jpg"
+                      src="img/product-34.jpg"
                       alt=""
                     />
                     <div
@@ -1415,11 +1451,11 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Nhẫn Ruby <br />
+                      GJR468</a
                     >
+                    <span class="text-primary me-1">10,930,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1442,7 +1478,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-3.jpg"
+                      src="img/product-35.jpg"
                       alt=""
                     />
                     <div
@@ -1452,11 +1488,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Dây chuyền Emerald GJCP697</a
                     >
+                    <span class="text-primary me-1">31,270,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1479,7 +1514,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-4.jpg"
+                      src="img/product-36.jpg"
                       alt=""
                     />
                     <div
@@ -1489,11 +1524,8 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
-                    >
+                    <a class="d-block h5 mb-2" href="">Lắc/vòng đá FGB14484</a>
+                    <span class="text-primary me-1">223,770,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1516,7 +1548,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-5.jpg"
+                      src="img/product-37.jpg"
                       alt=""
                     />
                     <div
@@ -1526,11 +1558,10 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Bông tai Peridot NA722-WG</a
                     >
+                    <span class="text-primary me-1">9,930,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1553,7 +1584,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-6.jpg"
+                      src="img/product-38.jpg"
                       alt=""
                     />
                     <div
@@ -1563,11 +1594,11 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Nhẫn Topaz <br />
+                      NA722-WG</a
                     >
+                    <span class="text-primary me-1">7,000,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1590,7 +1621,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-7.jpg"
+                      src="img/product-39.jpg"
                       alt=""
                     />
                     <div
@@ -1600,11 +1631,11 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Hoa tai Ruby <br />
+                      GJE706</a
                     >
+                    <span class="text-primary me-1">16,920,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1627,7 +1658,7 @@
                   <div class="position-relative bg-light overflow-hidden">
                     <img
                       class="img-fluid w-100"
-                      src="img/product-8.jpg"
+                      src="img/product-40.jpg"
                       alt=""
                     />
                     <div
@@ -1637,11 +1668,11 @@
                     </div>
                   </div>
                   <div class="text-center p-4">
-                    <a class="d-block h5 mb-2" href="">Fresh Tomato</a>
-                    <span class="text-primary me-1">$19.00</span>
-                    <span class="text-body text-decoration-line-through"
-                      >$29.00</span
+                    <a class="d-block h5 mb-2" href=""
+                      >Nhẫn Topaz <br />
+                      GJR349</a
                     >
+                    <span class="text-primary me-1">7,010,000đ</span>
                   </div>
                   <div class="d-flex border-top">
                     <small class="w-50 text-center border-end py-2">
@@ -1907,7 +1938,8 @@
           <div class="col-lg-3 col-md-6">
             <h4 class="text-light mb-4">Address</h4>
             <p>
-              <i class="fa fa-map-marker-alt me-3"></i>273 An Duong Vuong, District 5 
+              <i class="fa fa-map-marker-alt me-3"></i>273 An Duong Vuong,
+              District 5
             </p>
             <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
             <p><i class="fa fa-envelope me-3"></i>jewelexample@gmail.com</p>
