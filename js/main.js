@@ -90,6 +90,7 @@ function loginform() {
 let userArray = [];
 let adminArray = [];
 var modal = document.querySelector('.modal');
+var modalCart = document.querySelector('.modal-cart');
 
 function signup(e) {
     var usernamedk = document.getElementById("usernamedk").value;
@@ -208,6 +209,11 @@ document.querySelector('.btn-modal-cart:first-of-type').addEventListener('click'
          modal.classList.remove('active');
     } 
 })
+
+document.getElementsByClassName('btn-modal-cart')[1].onclick = function(){
+    modal.classList.remove('active');
+    modalCart.style.display = 'none';   
+}
 
 window.onload = function() {
     CreateAdmin();
