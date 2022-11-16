@@ -89,6 +89,7 @@ function loginform() {
 
 let userArray = [];
 let adminArray = [];
+var modal = document.querySelector('.modal');
 
 function signup(e) {
     var usernamedk = document.getElementById("usernamedk").value;
@@ -195,6 +196,18 @@ function keepitreal() {
     }
 
 }
+
+document.querySelector('.btn-modal-cart:first-of-type').addEventListener('click', function(){
+    var x = document.getElementsByClassName('cart-row')
+    if(x.length==0){
+          alert('Bạn chưa mua hàng')
+    }else if(y==''){
+         alert('Vui lòng đăng nhập trước khi thanh toán !')
+    }else {
+         document.getElementsByClassName('modal-cart')[0].style.display = 'none' 
+         modal.classList.remove('active');
+    } 
+})
 
 window.onload = function() {
     CreateAdmin();
