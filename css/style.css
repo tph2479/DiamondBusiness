@@ -506,10 +506,8 @@
   }
 }
 
-/* lỗi khung nhập email nằm đây */
-
 /* Full-width input fields */
-input[type=text], input[type=password] {
+.txt {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -519,7 +517,7 @@ input[type=text], input[type=password] {
 }
 
 /* Set a style for all buttons */
-button {
+.btn_txt {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -529,11 +527,9 @@ button {
   width: 100%;
 }
 
-button:hover {
+.btn_txt:hover {
   opacity: 0.8;
 }
-
-/* end lỗi  */
 
 /* Extra styles for the cancel button */
 .cancelbtn {

@@ -163,6 +163,7 @@
           <form action="">
             <label for="uname"><b>Username</b></label>
             <input
+              class="txt"
               id="usernamedn"
               type="text"
               placeholder="Enter Username"
@@ -172,6 +173,7 @@
 
             <label for="psw"><b>Password</b></label>
             <input
+              class="txt"
               id="passdn"
               type="password"
               placeholder="Enter Password"
@@ -179,15 +181,11 @@
               required
             />
 
-            <button type="button" onclick="login()">Login</button>
+            <button class="btn_txt" type="button" onclick="login()">Login</button>
             <p id="result">Welcome Login...</p>
-            <button type="button" onclick="signupform()">
+            <button class="btn_txt" type="button" onclick="signupform()">
               Chưa có tài khoản
             </button>
-            <label>
-              <input type="checkbox" unchecked="checked" name="remember" />
-              Remember me
-            </label>
           </form>
         </div>
       </form>
@@ -212,6 +210,7 @@
                 <td>Username</td>
                 <td>
                   <input
+                    class="txt"
                     type="text"
                     placeholder="Username"
                     id="usernamedk"
@@ -223,6 +222,7 @@
                 <td>Password</td>
                 <td>
                   <input
+                    class="txt"
                     type="password"
                     placeholder="Password"
                     id="passdk"
@@ -233,13 +233,14 @@
               <tr>
                 <td>Email</td>
                 <td>
-                  <input type="text" placeholder="a@gmai.com" id="emaildk" />
+                  <input class="txt" type="text" placeholder="a@gmai.com" id="emaildk" />
                 </td>
               </tr>
               <tr>
                 <td>Phone</td>
                 <td>
                   <input
+                    class="txt"
                     type="text"
                     placeholder="Phone number"
                     name="phone"
@@ -252,6 +253,7 @@
                 <td>Address</td>
                 <td>
                   <input
+                    class="txt"
                     type="text"
                     placeholder="273 An Dương Vương "
                     name="address"
@@ -262,12 +264,12 @@
               </tr>
               <tr>
                 <td>
-                  <button style="" type="button" onclick="loginform()">
+                  <button class="btn_txt" style="" type="button" onclick="loginform()">
                     Đã có tài khoản
                   </button>
                 </td>
                 <td>
-                  <button type="button" onclick="signup()">Đăng ký</button>
+                  <button class="btn_txt" type="button" onclick="signup()">Đăng ký</button>
                 </td>
               </tr>
             </table>
