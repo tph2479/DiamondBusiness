@@ -414,18 +414,17 @@ function Pagination() {
     document.getElementById("tab-0").innerHTML = `
     <div class="row g-4">
         ${product_items_1}
-        <div class="col-12 text-center">
-            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-        </div>
-    </div>`;
+    </div>
+    `
+    ;
 
-    document.getElementById("tab-1").innerHTML = `
-    <div class="row g-4">
-        ${product_items_1}
-        <div class="col-12 text-center">
-            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-        </div>
-    </div>`;
+    // document.getElementById("tab-1").innerHTML = `
+    // <div class="row g-4">
+    //     ${product_items_1}
+    //     <div class="col-12 text-center">
+    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+    //     </div>
+    // </div>`;
 
     // document.getElementById("tab-2").innerHTML = `
     // <div class="row g-4">
