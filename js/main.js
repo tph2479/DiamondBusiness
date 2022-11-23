@@ -411,7 +411,7 @@ function Pagination() {
         // }
     }
 
-    document.getElementById("tab-0").innerHTML = `
+    document.getElementById("tab-1").innerHTML = `
     <div class="row g-4">
         ${product_items_1}
     </div>
