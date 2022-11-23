@@ -354,17 +354,38 @@ var products = [
         img: "product-7.jpg",
         price: "31,500,000đ"
     },
+    // {
+    //     type: "kim cương",
+    //     name: "Hoa tai kim cương FDE0015",
+    //     img: "product-8.jpg",
+    //     price: "44,490,000đ"
+    // },
     {
-        type: "kim cương",
-        name: "Hoa tai kim cương FDE0015",
-        img: "product-8.jpg",
-        price: "44,490,000đ"
+        type: "vàng",
+        name: "Vòng charrm CB60035DD",
+        img: "product-25.jpg",
+        price: "3,900,000đ"
+    },
+    {
+        type: "đá màu",
+        name: "Hoa tai Citrine GJE473",
+        img: "product-33.jpg",
+        price: "9,280,000đ"
+    },
+    {
+        type: "đá màu",
+        name: "Nhẫn Ruby GJR468",
+        img: "product-34.jpg",
+        price: "10,930,000đ"
     },
 ];
 
 
 function Pagination() {
+    var product_items_0 = "";
     var product_items_1 = "";
+    var product_items_2 = "";
+    var product_items_3 = "";
     for(var i = 0; i < products.length; i++) {
         var product_item = `
             <div class="col-xl-3 col-lg-4 col-md-6">
@@ -402,13 +423,13 @@ function Pagination() {
                 </div>
             </div>`;
 
-        //if(products[i].type === "kim cương")
+        if(products[i].type.localeCompare("kim cương") === 0)
             product_items_1 += product_item;
-        // } else if(products.type === "vàng") {
-        //     product_items_2 += product_item;
-        // } else {
-        //     product_items_3 += product_item;
-        // }
+        else if(products[i].type.localeCompare("vàng") === 0)
+            product_items_2 += product_item;
+        else
+            product_items_3 += product_item;
+        
     }
 
     document.getElementById("tab-1").innerHTML = `
@@ -426,21 +447,21 @@ function Pagination() {
     //     </div>
     // </div>`;
 
-    // document.getElementById("tab-2").innerHTML = `
-    // <div class="row g-4">
-    //     ${product_items_2}
-    //     <div class="col-12 text-center">
-    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-    //     </div>
-    // </div>`;
+    document.getElementById("tab-2").innerHTML = `
+    <div class="row g-4">
+        ${product_items_2}
+        <div class="col-12 text-center">
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+        </div>
+    </div>`;
 
-    // document.getElementById("tab-3").innerHTML = `
-    // <div class="row g-4">
-    //     ${product_items_3}
-    //     <div class="col-12 text-center">
-    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-    //     </div>
-    // </div>`;
+    document.getElementById("tab-3").innerHTML = `
+    <div class="row g-4">
+        ${product_items_3}
+        <div class="col-12 text-center">
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+        </div>
+    </div>`;
 }
 
 window.onload = function() {
