@@ -366,8 +366,7 @@ var products = [
 function Pagination() {
     var product_items_1 = "";
     for(var i = 0; i < products.length; i++) {
-        if(products[i].type == "kim cương") {
-            var product_item = `
+        var product_item = `
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="product-item">
                     <div class="position-relative bg-light overflow-hidden">
@@ -402,9 +401,23 @@ function Pagination() {
                     </div>
                 </div>
             </div>`;
+
+        //if(products[i].type === "kim cương")
             product_items_1 += product_item;
-        }
+        // } else if(products.type === "vàng") {
+        //     product_items_2 += product_item;
+        // } else {
+        //     product_items_3 += product_item;
+        // }
     }
+
+    document.getElementById("tab-0").innerHTML = `
+    <div class="row g-4">
+        ${product_items_1}
+        <div class="col-12 text-center">
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+        </div>
+    </div>`;
 
     document.getElementById("tab-1").innerHTML = `
     <div class="row g-4">
@@ -413,6 +426,22 @@ function Pagination() {
             <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
         </div>
     </div>`;
+
+    // document.getElementById("tab-2").innerHTML = `
+    // <div class="row g-4">
+    //     ${product_items_2}
+    //     <div class="col-12 text-center">
+    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+    //     </div>
+    // </div>`;
+
+    // document.getElementById("tab-3").innerHTML = `
+    // <div class="row g-4">
+    //     ${product_items_3}
+    //     <div class="col-12 text-center">
+    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
+    //     </div>
+    // </div>`;
 }
 
 window.onload = function() {
