@@ -360,7 +360,7 @@ var products = [
     //     img: "product-8.jpg",
     //     price: "44,490,000đ"
     // },
-    
+
     {
         type: "vàng",
         name: "Vòng charrm CB60035DD",
@@ -398,9 +398,9 @@ var products = [
         img: "product-34.jpg",
         price: "10,930,000đ"
     },
-
 ];
 
+// phân trang bằng onclick tham số được tạo động ví dụ next("vàng", 8) lấy tám trang tiếp theo của vàng
 
 function Pagination() {
     var product_items_0 = "";
