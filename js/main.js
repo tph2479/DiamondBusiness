@@ -317,348 +317,101 @@ var products = [
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: "100,130,000đ"
-    }
+    },
+    {
+        type: "kim cương",
+        name: "Nhẫn DJR3259",
+        img: "product-2.jpg",
+        price: "58,970,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Hoa tai DJE1137",
+        img: "product-3.jpg",
+        price: "89,700,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Hoa tai DJE1136",
+        img: "product-4.jpg",
+        price: "71,180,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Mặt dây kim cương FDCP0300",
+        img: "product-5.jpg",
+        price: "42,830,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Mặt dây kim cương FDCP0205",
+        img: "product-6.jpg",
+        price: "44,360,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Nhẫn Kim cương FDR0018",
+        img: "product-7.jpg",
+        price: "31,500,000đ"
+    },
+    {
+        type: "kim cương",
+        name: "Hoa tai kim cương FDE0015",
+        img: "product-8.jpg",
+        price: "44,490,000đ"
+    },
 ];
 
+
 function Pagination() {
-    var product_items = `
+    var product_items = "";
+    for(var i = 0; i < products.length; i++) {
+        var product_item = `
+    <div class="col-xl-3 col-lg-4 col-md-6">
+        <div class="product-item">
+            <div class="position-relative bg-light overflow-hidden">
+            <img
+                class="img-fluid w-100"
+                src="img/${products[i].img}"
+                alt=""
+            />
+            <div
+                class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
+            >
+                New
+            </div>
+            </div>
+            <div class="text-center p-4">
+            <a class="d-block h5 mb-2" href="">${products[i].name}</a>
+            <span class="text-primary me-1">${products[i].price}</span>
+            </div>
+            <div class="d-flex border-top">
+            <small class="w-50 text-center border-end py-2">
+                <a class="text-body" href=""
+                ><i class="fa fa-eye text-primary me-2"></i>View
+                detail</a
+                >
+            </small>
+            <small class="w-50 text-center py-2">
+                <a class="text-body" href="" onclick="addItemToCart()"
+                ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
+                to cart</a
+                >
+            </small>
+            </div>
+        </div>
+    </div>`;
+
+        product_items += product_item;
+    }
+
+    document.getElementById("tab-1").innerHTML = `
     <div class="row g-4">
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.1s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/${products[0].img}"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
+        ${product_items}
+        <div class="col-12 text-center">
+            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
         </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href="">${products[0].name}</a>
-          <span class="text-primary me-1">${products[0].price}</span>
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href="" onclick="addItemToCart()"
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.3s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-2.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href="">Nhẫn DJR3259</a>
-          <span class="text-primary me-1">58,970,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >59,800,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.5s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-3.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href="">Hoa tai DJE1137</a>
-          <span class="text-primary me-1">89,700,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >91,700,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.7s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-4.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href="">Hoa tai DJE1136</a>
-          <span class="text-primary me-1">71,180,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >72,980,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.1s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-5.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href=""
-            >Mặt dây kim cương FDCP0300</a
-          >
-          <span class="text-primary me-1">42,830,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >43,830,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.3s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-6.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href=""
-            >Mặt dây kim cương FDCP0205</a
-          >
-          <span class="text-primary me-1">44,360,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >45,560,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.5s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-7.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href=""
-            >Nhẫn Kim cương FDR0018</a
-          >
-          <span class="text-primary me-1">31,500,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >33,400,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-xl-3 col-lg-4 col-md-6 wow fadeInUp"
-      data-wow-delay="0.7s"
-    >
-      <div class="product-item">
-        <div class="position-relative bg-light overflow-hidden">
-          <img
-            class="img-fluid w-100"
-            src="img/product-8.jpg"
-            alt=""
-          />
-          <div
-            class="bg-secondary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3"
-          >
-            New
-          </div>
-        </div>
-        <div class="text-center p-4">
-          <a class="d-block h5 mb-2" href=""
-            >Hoa tai kim cương FDE0015</a
-          >
-          <span class="text-primary me-1">44,490,000đ</span>
-          <span class="text-body text-decoration-line-through"
-            >45,200,000đ</span
-          >
-        </div>
-        <div class="d-flex border-top">
-          <small class="w-50 text-center border-end py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-eye text-primary me-2"></i>View
-              detail</a
-            >
-          </small>
-          <small class="w-50 text-center py-2">
-            <a class="text-body" href=""
-              ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
-              to cart</a
-            >
-          </small>
-        </div>
-      </div>
-    </div>
-    <div
-      class="col-12 text-center wow fadeInUp"
-      data-wow-delay="0.1s"
-    >
-      <a class="btn btn-primary rounded-pill py-3 px-5" href=""
-        >Browse More Products
-      </a>
-    </div>
-  </div>
-    `;
-    document.getElementById("tab-1").innerHTML = product_items;
+    </div>`;
 }
 
 window.onload = function() {
