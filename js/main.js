@@ -360,12 +360,32 @@ var products = [
     //     img: "product-8.jpg",
     //     price: "44,490,000đ"
     // },
+    
     {
         type: "vàng",
         name: "Vòng charrm CB60035DD",
         img: "product-25.jpg",
         price: "3,900,000đ"
     },
+    {
+        type: "vàng",
+        name: "Ghim cài áo Cúc họa mi LH60011",
+        img: "product-26.jpg",
+        price: "9,090,000đ"
+    },
+    {
+        type: "vàng",
+        name: "Dây vàng collier LN000256",
+        img: "product-27.jpg",
+        price: "5,630,000đ"
+    },
+    {
+        type: "vàng",
+        name: "Ghim cài áo Cúc họa mi LH60011",
+        img: "product-28.jpg",
+        price: "5,590,000đ"
+    },
+
     {
         type: "đá màu",
         name: "Hoa tai Citrine GJE473",
@@ -378,6 +398,7 @@ var products = [
         img: "product-34.jpg",
         price: "10,930,000đ"
     },
+
 ];
 
 
@@ -435,9 +456,17 @@ function Pagination() {
     document.getElementById("tab-1").innerHTML = `
     <div class="row g-4">
         ${product_items_1}
-    </div>
-    `
-    ;
+    </div>`;
+
+    document.getElementById("tab-2").innerHTML = `
+    <div class="row g-4">
+        ${product_items_2}
+    </div>`;
+
+    document.getElementById("tab-3").innerHTML = `
+    <div class="row g-4">
+        ${product_items_3}
+    </div>`;
 
     // document.getElementById("tab-1").innerHTML = `
     // <div class="row g-4">
@@ -446,22 +475,6 @@ function Pagination() {
     //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
     //     </div>
     // </div>`;
-
-    document.getElementById("tab-2").innerHTML = `
-    <div class="row g-4">
-        ${product_items_2}
-        <div class="col-12 text-center">
-            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-        </div>
-    </div>`;
-
-    document.getElementById("tab-3").innerHTML = `
-    <div class="row g-4">
-        ${product_items_3}
-        <div class="col-12 text-center">
-            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-        </div>
-    </div>`;
 }
 
 window.onload = function() {
