@@ -87,11 +87,6 @@ function loginform() {
     document.getElementById('dk').style.display='none';
 }
 
-// Lấy giá trị của một input
-function getValue(id){
-    return document.getElementById(id).value.trim();
-}
-
 // Hiển thị lỗi
 function showError(key, mess){
     document.getElementById(key + '_error').innerHTML = mess;
@@ -126,40 +121,34 @@ function signup(e) {
 
 function validatesignup()
 {
-    var flag = true;
+    // var flag = true;
+    var usernamedk = document.getElementById("usernamedk").value;
+    var passdk = document.getElementById("passdk").value;
+    var emaildk = document.getElementById("emaildk").value;
+    var phonedk = document.getElementById("phonedk").value;
+    var address = document.getElementById("address").value;
+    var mailformat = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-    // 1 username
-    var username = getValue('usernamedk');
-    if (username == '' || username.length < 5 || !/^[a-zA-Z0-9]+$/.test(username)){
-        flag = false;
+    if (usernamedk == '' || usernamedk.length < 5 || !/^[a-zA-Z0-9]+$/.test(usernamedk)){
+        // flag = false;
         showError('username', 'Vui lòng kiểm tra lại Username');
+        return false;
     }
-
-    // 2. password
-    var password = getValue('passdk');
-    var repassword = getValue('repassword');
-    if (password == '' || password.length < 8 || password != repassword){
-        flag = false;
+    else if (passdk == '' || passdk.length < 8 ){
+        // flag = false;
         showError('password', 'Vui lòng kiểm tra lại Password');
+        return false;
     }
-
-    // 3. Phone
-    var phone = getValue('phonedk');
-    if (phone != '' &&  !/^[0-9]{10}$/.test(phone)){
-        flag = false;
+    else if (phonedk != '' &&  !/^[0-9]{10}$/.test(phonedk)){
+        // flag = false;
         showError('phone', 'Vui lòng kiểm tra lại Phone');
+        return false;
     }
-
-    // 4. Email
-    var email = getValue('emaildk');
-    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (!mailformat.test(email)){
-        flag = false;
-
+    else if (!mailformat.test(emaildk)){
+        // flag = false;
         showError('email', 'Vui lòng kiểm tra lại Email');
+        return false;
     }
-
-    return flag;
 }
 
 function login() {
