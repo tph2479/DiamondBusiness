@@ -14,6 +14,23 @@ body {
     height: 10000px;
 }
 
+#xacnhanxoa {
+    display: none;
+    position: fixed;
+    width: 20%;
+    top: 25%;
+    left: 40%;
+    height: 20%;
+    background-color: #e4d7d7fb;
+    border-radius: 5%;
+}
+
+@media only screen and (max-width: 800px) {
+    #xacnhanxoa {
+        width: 40%;
+    }
+}
+
 .btn {
     display: inline-block;
     font-weight: 400;
@@ -99,11 +116,6 @@ h1 {
 }
 
 .form-group {
-	/* display: block;
-	width: 80%;
-	font-size: 16px;
-	margin: 0px auto;
-	margin-bottom: 6px; */
     padding: 10px;
     display: block;
     justify-content: center;
