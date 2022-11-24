@@ -124,6 +124,44 @@ function signup(e) {
     window.location.reload();
 }
 
+function validatesignup()
+{
+    var flag = true;
+
+    // 1 username
+    var username = getValue('usernamedk');
+    if (username == '' || username.length < 5 || !/^[a-zA-Z0-9]+$/.test(username)){
+        flag = false;
+        showError('username', 'Vui lòng kiểm tra lại Username');
+    }
+
+    // 2. password
+    var password = getValue('passdk');
+    var repassword = getValue('repassword');
+    if (password == '' || password.length < 8 || password != repassword){
+        flag = false;
+        showError('password', 'Vui lòng kiểm tra lại Password');
+    }
+
+    // 3. Phone
+    var phone = getValue('phonedk');
+    if (phone != '' &&  !/^[0-9]{10}$/.test(phone)){
+        flag = false;
+        showError('phone', 'Vui lòng kiểm tra lại Phone');
+    }
+
+    // 4. Email
+    var email = getValue('emaildk');
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (!mailformat.test(email)){
+        flag = false;
+
+        showError('email', 'Vui lòng kiểm tra lại Email');
+    }
+
+    return flag;
+}
+
 function login() {
     var username = document.getElementById("usernamedn").value;
     var password = document.getElementById("passdn").value;

@@ -224,6 +224,7 @@
                 <td>Email</td>
                 <td>
                   <input class="txt" type="text" placeholder="a@gmai.com" id="emaildk" />
+                  <span id="email_error"></span>
                 </td>
               </tr>
               <tr>
@@ -237,6 +238,7 @@
                     id="phonedk"
                     value=""
                   />
+                  <span id="phone_error"></span>
                 </td>
               </tr>
               <tr>
@@ -250,6 +252,7 @@
                     id="address"
                     value=""
                   />
+                  <span id="address_error"></span>
                 </td>
               </tr>
               <tr>
@@ -259,7 +262,7 @@
                   </button>
                 </td>
                 <td>
-                  <button class="btn_txt" type="button" onclick="signup()">Đăng ký</button>
+                  <button class="btn_txt" type="button" onclick="return validatesignup();">Đăng ký</button>
                 </td>
               </tr>
             </table>

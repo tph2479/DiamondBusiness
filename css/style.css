@@ -559,6 +559,10 @@ span.psw {
   padding-top: 16px;
 }
 
+span{
+  color:red;
+}
+
 /* modal-Cart */
 .modal-cart {
   position: relative;
