@@ -200,7 +200,7 @@
 
         <div class="form-group">
           <label for="number" class="form-label">Số điện thoại</label>
-          <input id="number" name="number" type="text" placeholder="VD: 0901234567" class="form-control">
+          <input id="phone" name="number" type="text" placeholder="VD: 0901234567" class="form-control">
           <span class="form-message"></span>
         </div>
     
@@ -222,7 +222,8 @@
           <span class="form-message"></span>
         </div>
     
-        <button  class="form-submit">Đăng ký</button>
+        <button type="button" onclick="signup()"  class="form-submit">Đăng ký</button>
+        <button type="button"  class="form-submit" onclick="loginform()">Đã có tài khoản</button>
       </form>
     
     </div>
@@ -1249,5 +1250,28 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <script>
+      Validator({
+                form: '#form-1',
+                formGroupSelector: '.form-group',
+                errorSelector: '.form-message',
+                rules: [
+                    Validator.isRequired('#fullname','Tên không được bỏ trống'),
+                    Validator.isRequired('#number','Số điện thoại không được bỏ trống'),
+                    Validator.isSDT('#number','Sai định dạng'),
+                    Validator.isRequired('#email','Email không được bỏ trống'),
+                    Validator.isEmail('#email'),
+                    Validator.isRequired('#password','Vui lòng nhập mật khẩu'),
+                    Validator.isRequired('input[name="gender"]','Vui lòng chọn giới tính'),
+                    Validator.isRequired('#password_confirmation','Không được để trống vùng này'),
+                    Validator.isCheck('#password_confirmation',function(){
+                        return document.querySelector('#form-1 #password').value;
+                    },'Hai mật khẩu không giống nhau'),
+                ],
+                onSubmit: function(data) {
+                    console.log(data);
+                }
+            });
+    </script>
   </body>
 </html>
