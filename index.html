@@ -180,95 +180,51 @@
     </div>
 
     <!-- signupform -->
-    <div id="dk" class="formdk">
-      <form class="formdk-class" method="post">
-        <form method="post" action="xuly.php">
-          <div class="imgcontainer">
-            <span
-              onclick="document.getElementById('dk').style.display='none'"
-              class="close"
-              title="Close Modal"
-              >&times;</span
-            >
-            <img src="img/user.jpg" alt="Avatar" class="avatar" />
-          </div>
-          <div class="tb-dk">
-            <table>
-              <tr>
-                <td>Username</td>
-                <td>
-                  <input
-                    class="txt"
-                    type="text"
-                    placeholder="Username"
-                    id="usernamedk"
-                    value=""
-                  />
-                  <span id="username_error"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>Password</td>
-                <td>
-                  <input
-                    class="txt"
-                    type="password"
-                    placeholder="Password"
-                    id="passdk"
-                    value=""
-                  />
-                  <span id="password_error"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>Email</td>
-                <td>
-                  <input class="txt" type="text" placeholder="a@gmai.com" id="emaildk" />
-                  <span id="email_error"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>Phone</td><br>
-                <td>
-                  <input
-                    class="txt"
-                    type="text"
-                    placeholder="Phone number"
-                    name="phone"
-                    id="phonedk"
-                    value=""
-                  />
-                  <span id="phone_error"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>Address</td>
-                <td>
-                  <input
-                    class="txt"
-                    type="text"
-                    placeholder="273 An Dương Vương "
-                    name="address"
-                    id="address"
-                    value=""
-                  />
-                  <span id="address_error"></span>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <button class="btn_txt" style="" type="button" onclick="loginform()">
-                    Đã có tài khoản
-                  </button>
-                </td>
-                <td>
-                  <button class="btn_txt" type="button"onclick="signup()">Đăng ký</button>
-                </td>
-              </tr>
-            </table>
-          </div>
-        </form>
+    <div id="dk" class="main">
+      <form action="send.php" method="post" class="form-class" id="form-1">
+        <span
+            onclick="document.getElementById('dk').style.display='none'"
+            class="close"
+            title="Close Modal"
+            >&times;</span
+          >
+        <h3 class="heading">Đăng ký thành viên</h3>
+    
+        <div class="spacer"></div>
+    
+        <div class="form-group">
+          <label for="fullname" class="form-label">Tên đầy đủ</label>
+          <input id="fullname" name="fullname" type="text" placeholder="VD: Thành" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="number" class="form-label">Số điện thoại</label>
+          <input id="number" name="number" type="text" placeholder="VD: 0901234567" class="form-control">
+          <span class="form-message"></span>
+        </div>
+    
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+          <span class="form-message"></span>
+        </div>
+    
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+          <span class="form-message"></span>
+        </div>
+    
+        <div class="form-group">
+          <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
+          <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control">
+          <span class="form-message"></span>
+        </div>
+    
+        <button  class="form-submit">Đăng ký</button>
       </form>
+    
     </div>
 
     <!-- Modal Cart Product -->
@@ -279,45 +235,6 @@
         title="Close Modal"
         >&times;</span
       >
-      <!-- <div class="modal-cart-top">
-        <h3>
-          Giỏ hàng của bạn có
-          <p id="length-num">0</p>
-          sản phẩm
-        </h3>
-      </div>
-      <div class="modal-wrapper">
-        <div class="modal-cart-bottom">
-          <div class="cart-table">
-            <table class="cart-table-list">
-              <img src="./assets/img/empty-cart.png" alt="" class="emty-cart" />
-              <tr>
-                <th width="480px" height="40px">Sản phẩm</th>
-                <th width="170px">Đơn giá</th>
-                <th width="170px">Số lượng</th>
-                <th width="170px">Thành tiền</th>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="sum-total">
-          <p>Tổng tiền thanh toán:</p>
-          <h5 id="number-total">0</h5>
-        </div>
-
-        <br />
-
-        <div class="cart-button">
-          <a href="#" class="btn btn-modal-cart">
-            <p class="thanhtoan">Thực hiện thanh toán</p>
-          </a>
-
-          <a href="#" class="btn btn-modal-cart">
-            <p>Tiếp tục mua hàng</p>
-          </a>
-        </div>
-      </div> -->
 
       <div class="cart-row">
           <span class="cart-item cart-header cart-column">Sản Phẩm</span>
