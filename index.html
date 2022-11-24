@@ -1257,12 +1257,11 @@
                 errorSelector: '.form-message',
                 rules: [
                     Validator.isRequired('#fullname','Tên không được bỏ trống'),
-                    Validator.isRequired('#number','Số điện thoại không được bỏ trống'),
-                    Validator.isSDT('#number','Sai định dạng'),
+                    Validator.isRequired('#phone','Số điện thoại không được bỏ trống'),
+                    Validator.isSDT('#phone','Sai định dạng'),
                     Validator.isRequired('#email','Email không được bỏ trống'),
                     Validator.isEmail('#email'),
                     Validator.isRequired('#password','Vui lòng nhập mật khẩu'),
-                    Validator.isRequired('input[name="gender"]','Vui lòng chọn giới tính'),
                     Validator.isRequired('#password_confirmation','Không được để trống vùng này'),
                     Validator.isCheck('#password_confirmation',function(){
                         return document.querySelector('#form-1 #password').value;

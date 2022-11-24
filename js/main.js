@@ -103,20 +103,25 @@ function signup(e) {
     var emaildk = document.getElementById("email").value;
     var phonedk = document.getElementById("phone").value;
     var password_confirmation = document.getElementById("password_confirmation").value;
-
-    var user = {
-        username: usernamedk,
-        password:  passdk,
-        email: emaildk,
-        phone: phonedk,
-        repasswd: password_confirmation,
-        typeUser: "member"
+    if (usernamedk == ''||passdk == ''||phonedk == ''||emaildk == ''||password_confirmation == ''){
+        alert('Không được để trống thông tin');
     }
+    else {
+        var user = {
+            username: usernamedk,
+            password:  passdk,
+            email: emaildk,
+            phone: phonedk,
+            repasswd: password_confirmation,
+            typeUser: "member"
+        }
 
-    localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
-    userArray.push(user);
-    alert("Đăng kí thành công");
-    window.location.reload();
+        localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
+        userArray.push(user);
+        alert("Đăng kí thành công");
+        window.location.reload();
+    }
+    
 }
 
 Validator.isRequired=function(selector,message){
@@ -180,12 +185,6 @@ function Validator(options) {
         //Lặp qua từng rule và kiểm tra nếu có lỗi thì dừng
         for (var i=0; i<rules.length; ++i) {
             switch (inputElement.typeof){
-                case 'radio':
-                case 'checkbox':
-                    errorMessage= rules[i](
-                        formElement.querySelector(rule.selector +':checked'),
-                    );
-                    break;
                 default:
                     errorMessage= rules[i](inputElement.value);
             }
@@ -230,13 +229,10 @@ function Validator(options) {
                         return values ;
                     },{});
                     options.onSubmit(formValues);
-                    alert('Đã lấy dữ liệu');
                 }
                 //Trường hợp submit mặc định
             }
             else{
-                    // formElement.submit();
-                    alert('Submit mặc định');
             }
         }
 
@@ -319,10 +315,10 @@ function CreateAdmin() {
     if (localStorage.getItem('admin') == null) {
         var user = {
             username: 'admin',
-            password: 'admin',
+            password:  '12345678',
             email: 'admin@gmail.com',
-            phone: '0123456789',
-            address: '273 An Dương Vương Phường 3 Quận 5',
+            phone: '0901324565',
+            repasswd: '12345678',
             typeUser: 'admin'
             
         };
@@ -331,11 +327,11 @@ function CreateAdmin() {
     }
     if (localStorage.getItem('user') == null) {
         var user = {
-            username: 'user',
-            password: '123',
-            email: 'user@gmail.com',
-            phone: '0123456789',
-            address: '217 Võ Thị Sáu Phường 7 Quận 3',
+            username: 'user1',
+            password:  '12345678',
+            email: 'user1@gmail.com',
+            phone: '0901324123',
+            repasswd: '12345678',
             typeUser: 'member'
         };
         localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
