@@ -655,16 +655,16 @@ span{
   background-color: white;
 }
 
-/* .modal-cart-top {
+.modal-cart-top {
   width: 100%;
   display: flex;
   padding : 10px;
   align-items: center;
   background-color: #8d8d8d;
   color: #000;
-} */
+}
 
-/* .modal-cart-top h3 {
+.modal-cart-top h3 {
   display: flex;
 }
 
@@ -693,9 +693,9 @@ span{
 
 .cart-table-list tr {
   display: none;
-} */
+}
 
-/* td {
+td {
  text-align: center;
 }
 
@@ -706,9 +706,9 @@ span{
 .img-wrapper {
   display: flex;
   align-items: center;
-} */
+}
 
-/* .modal-wrapper {
+.modal-wrapper {
   padding: 20px;
 }
 
@@ -736,7 +736,7 @@ span{
   right: 40px;
   display: flex;
   gap: 10px;
-} */
+}
 
 .cart-button {
 text-align: center;
@@ -763,101 +763,19 @@ margin: 20px 10px;
   color: rgb(240, 110, 81);
 }
 
-/* End */
-
-/* cart */
-.cart-header {
-  font-weight: bold;
-  font-size: 1.25em;
-  color: #333;
-}
-
-.cart-column {
+.cart-info {
+  position: absolute;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid black;
-  margin-right: 1.5em;
-  padding-bottom: 10px;
-  margin-top: 10px;
+  justify-content: center;
+  background-color: var(--orangeprime);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  top: 1.4em;
+  right: 3.75em;
+  color : rgb(255, 0, 0);
+  font-size: 0.8rem;
 }
 
-.cart-row {
-  display: flex;
-}
-
-.cart-item {
-  width: 45%;
-}
-
-.cart-price {
-  width: 20%;
-  font-size: 1.2em;
-  color: #333;
-}
-
-.cart-quantity {
-  width: 35%;
-}
-
-.cart-item-title {
-  color: #333;
-  margin-left: .5em;
-  font-size: 1.2em;
-}
-
-.cart-item-image {
-  width: 25%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.btn-danger {
-  color: white;
-  background-color: #EB5757;
-  border: none;
-  border-radius: .3em;
-  font-weight: bold;
-}
-
-.btn-danger:hover {
-  background-color: #CC4C4C;
-}
-
-.cart-quantity-input {
-  height: 34px;
-  width: 50px;
-  border-radius: 5px;
-  border: 1px solid #56CCF2;
-  background-color: #eee;
-  color: #333;
-  padding: 0;
-  text-align: center;
-  font-size: 1.2em;
-  margin-right: 25px;
-}
-
-.cart-row:last-child {
-  border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-  border: none;
-}
-
-.cart-total {
-  text-align: end;
-  margin-top: 10px;
-  margin-right: 10px;
-}
-
-.cart-total-title {
-  font-weight: bold;
-  font-size: 1.5em;
-  color: black;
-  margin-right: 20px;
-}
-
-.cart-total-price {
-  color: #333;
-  font-size: 1.1em;
-}
+/* End */

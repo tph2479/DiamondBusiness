@@ -345,101 +345,103 @@ function keepitreal() {
 
 }
 
-var remove_cart = document.getElementsByClassName("btn-danger");
-for (var i = 0; i < remove_cart.length; i++) {
-  var button = remove_cart[i]
-  button.addEventListener("click", function () {
-    var button_remove = event.target
-    button_remove.parentElement.parentElement.remove()
-  })
-}
-// update cart 
-function updatecart() {
-    var cart_item = document.getElementsByClassName("cart-items")[0];
-    var cart_rows = cart_item.getElementsByClassName("cart-row");
-    var total = 0;
-    for (var i = 0; i < cart_rows.length; i++) {
-      var cart_row = cart_rows[i]
-      var price_item = cart_row.getElementsByClassName("cart-price")[0]
-      var quantity_item = cart_row.getElementsByClassName("cart-quantity-input")[0]
-      var price = parseFloat(price_item.innerText)// chuyển một chuổi string sang number để tính tổng tiền.
-      var quantity = quantity_item.value // lấy giá trị trong thẻ input
-      total = total + (price * quantity)
-    }
-    document.getElementsByClassName("cart-total-price")[0].innerText = total + 'VNĐ'
-    // Thay đổi text = total trong .cart-total-price. Chỉ có một .cart-total-price nên mình sử dụng [0].
-}
+// var remove_cart = document.getElementsByClassName("btn-danger");
+// for (var i = 0; i < remove_cart.length; i++) {
+//   var button = remove_cart[i]
+//   button.addEventListener("click", function () {
+//     var button_remove = event.target
+//     button_remove.parentElement.parentElement.remove()
+//   })
+// }
+// // update cart 
+// function updatecart() {
+//     var cart_item = document.getElementsByClassName("cart-items")[0];
+//     var cart_rows = cart_item.getElementsByClassName("cart-row");
+//     var total = 0;
+//     for (var i = 0; i < cart_rows.length; i++) {
+//       var cart_row = cart_rows[i]
+//       var price_item = cart_row.getElementsByClassName("cart-price")[0]
+//       var quantity_item = cart_row.getElementsByClassName("cart-quantity-input")[0]
+//       var price = parseFloat(price_item.innerText)// chuyển một chuổi string sang number để tính tổng tiền.
+//       var quantity = quantity_item.value // lấy giá trị trong thẻ input
+//       total = total + (price * quantity)
+//     }
+//     document.getElementsByClassName("cart-total-price")[0].innerText = total + 'VNĐ'
+//     // Thay đổi text = total trong .cart-total-price. Chỉ có một .cart-total-price nên mình sử dụng [0].
+// }
 
-// thay đổi số lượng sản phẩm
-var quantity_input = document.getElementsByClassName("cart-quantity-input");
-for (var i = 0; i < quantity_input.length; i++) {
-  var input = quantity_input[i];
-  input.addEventListener("change", function (event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-      input.value = 1;
-    }
-    updatecart()
-  })
-}
+// // thay đổi số lượng sản phẩm
+// var quantity_input = document.getElementsByClassName("cart-quantity-input");
+// for (var i = 0; i < quantity_input.length; i++) {
+//   var input = quantity_input[i];
+//   input.addEventListener("change", function (event) {
+//     var input = event.target
+//     if (isNaN(input.value) || input.value <= 0) {
+//       input.value = 1;
+//     }
+//     updatecart()
+//   })
+// }
 
-// Thêm vào giỏ
-var add_cart = document.getElementsByClassName("btn-cart");
-for (var i = 0; i < add_cart.length; i++) {
-  var add = add_cart[i];
-  add.addEventListener("click", function (event) {
+// // Thêm vào giỏ
+// var add_cart = document.getElementsByClassName("btn-cart");
+// for (var i = 0; i < add_cart.length; i++) {
+//   var add = add_cart[i];
+//   add.addEventListener("click", function (event) {
 
-    var button = event.target;
-    var product = button.parentElement.parentElement;
-    var img = product.parentElement.getElementsByClassName("img-prd")[0].src
-    var title = product.getElementsByClassName("content-product-h3")[0].innerText
-    var price = product.getElementsByClassName("price")[0].innerText
-    addItemToCart(title, price, img)
-    // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
-    modal.style.display = "block";
+//     var button = event.target;
+//     var product = button.parentElement.parentElement;
+//     var img = product.parentElement.getElementsByClassName("img-prd")[0].src
+//     var title = product.getElementsByClassName("content-product-h3")[0].innerText
+//     var price = product.getElementsByClassName("price")[0].innerText
+//     addItemToCart(title, price, img)
+//     // Khi thêm sản phẩm vào giỏ hàng thì sẽ hiển thị modal
+//     modal.style.display = "block";
     
-    updatecart()
-  })
-}
+//     updatecart()
+//   })
+// }
 
-function addItemToCart(title, price, img) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cart_title = cartItems.getElementsByClassName('cart-item-title')
-    //Nếu title của sản phẩm bằng với title mà bạn thêm vao giỏ hàng thì sẽ thông cho user.
-    for (var i = 0; i < cart_title.length; i++) {
-      if (cart_title[i].innerText == title) {
-        alert('Sản Phẩm Đã Có Trong Giỏ Hàng')
-        return
-      }
-    }
+// function addItemToCart(title, price, img) {
+//     var cartRow = document.createElement('div')
+//     cartRow.classList.add('cart-row')
+//     var cartItems = document.getElementsByClassName('cart-items')[0]
+//     var cart_title = cartItems.getElementsByClassName('cart-item-title')
+//     //Nếu title của sản phẩm bằng với title mà bạn thêm vao giỏ hàng thì sẽ thông cho user.
+//     for (var i = 0; i < cart_title.length; i++) {
+//       if (cart_title[i].innerText == title) {
+//         alert('Sản Phẩm Đã Có Trong Giỏ Hàng')
+//         return
+//       }
+//     }
   
-    var cartRowContents = `
-    <div class="cart-item cart-column">
-        <img class="cart-item-image" src="${img}" width: "25%" height="25%">
-        <span class="cart-item-title">${title}</span>
-    </div>
-    <span class="cart-price cart-column">${price}</span>
-    <div class="cart-quantity cart-column">
-        <input class="cart-quantity-input" type="number" value="1">
-        <button class="btn btn-danger" type="button">Xóa</button>
-    </div>`
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', function () {
-      var button_remove = event.target
-      button_remove.parentElement.parentElement.remove()
-      updatecart()
-    })
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', function (event) {
-      var input = event.target
-      if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1;
-      }
-      updatecart()
-    })
-  }
+//     var cartRowContents = `
+//     <div class="cart-item cart-column">
+//         <img class="cart-item-image" src="${img}" width: "25%" height="25%">
+//         <span class="cart-item-title">${title}</span>
+//     </div>
+//     <span class="cart-price cart-column">${price}</span>
+//     <div class="cart-quantity cart-column">
+//         <input class="cart-quantity-input" type="number" value="1">
+//         <button class="btn btn-danger" type="button">Xóa</button>
+//     </div>`
+//     cartRow.innerHTML = cartRowContents
+//     cartItems.append(cartRow)
+//     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', function () {
+//       var button_remove = event.target
+//       button_remove.parentElement.parentElement.remove()
+//       updatecart()
+//     })
+//     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', function (event) {
+//       var input = event.target
+//       if (isNaN(input.value) || input.value <= 0) {
+//         input.value = 1;
+//       }
+//       updatecart()
+//     })
+//   }
+
+
 
 document.querySelector('.btn-modal-cart:first-of-type').addEventListener('click', function(){
     var x = document.getElementsByClassName('cart-row')
@@ -456,6 +458,54 @@ document.querySelector('.btn-modal-cart:first-of-type').addEventListener('click'
 document.getElementsByClassName('btn-modal-cart')[1].onclick = function(){
     modal.classList.remove('active');
     modalCart.style.display = 'none';   
+}
+
+function removeCart(e) {
+    e.parentElement.parentElement.parentElement.parentElement.remove()
+    var x = document.getElementsByClassName('cart-row')
+    if(x.length== 0 ){
+        document.getElementsByClassName('emty-cart')[0].classList.add('active')
+        var a = document.querySelectorAll('.cart-table-list tr')
+        for(var i=0;i<a.length;i++){
+             var b = a[i]
+             b.style.display = 'none'
+        }
+   }else {
+       document.getElementsByClassName('emty-cart')[0].classList.remove('active')
+   }
+   updateCart()
+}
+
+function updateCart() {
+    var cartItemList = document.getElementsByClassName('cart-table-list')
+    for(let i = 0; i < cartItemList.length; i++){
+        var textQuantity = document.querySelector(' .cart-shopping-top-right-item p span')
+        console.log(textQuantity)
+            var cartRows = cartItemList[i].getElementsByClassName('cart-row')
+            var total = 0 ;
+            for(let i = 0; i < cartRows.length; i++) {
+                var cartRow = cartRows[i]
+                var quantityElm = cartRow.getElementsByClassName('quantityCart')[0]
+                    var priceElm = cartRow.querySelector('#price')
+                    var pricetotal = cartRow.querySelector('#price-total')
+                    var price = parseFloat(priceElm.innerText.replace('đ', ''))
+                    var quantity = quantityElm.value
+                    
+                    total = (total + (price * quantity))
+                    
+
+                
+                    pricetotal.innerHTML = `${((price *quantity)*1000000).toFixed(0)}đ`
+                
+            }
+        total = (total*1000000)
+        var x = Math.round(total)
+    }
+    document.querySelector(".sum-total h3").innerHTML = `${x}đ `
+    document.getElementById("number-total").innerHTML = `${x}đ `
+    document.getElementsByClassName('cart-info')[0].innerHTML = cartRows.length
+    document.getElementById('length-num').innerHTML = cartRows.length
+   
 }
 
 var products = [
@@ -622,6 +672,26 @@ function Pagination() {
     //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
     //     </div>
     // </div>`;
+}
+
+let inforUser = [];
+function getinforUser(e) {
+    var email_infor = document.getElementById("email-infor").value;
+    var name_infor = document.getElementById("name-infor").value;
+    if (email_infor == ''||name_infor == ''){
+        alert('Không có thông tin');
+    }
+    else {
+        var userinfor = {
+            name: name_infor,
+            email: email_infor,
+        }
+
+        localStorage.setItem(`userinfor${inforUser.length}`, JSON.stringify(userinfor));
+        inforUser.push(userinfor);
+        alert("Đã lưu thông tin");
+        window.location.reload();
+    }
 }
 
 window.onload = function() {
