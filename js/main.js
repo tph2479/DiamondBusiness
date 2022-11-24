@@ -87,6 +87,16 @@ function loginform() {
     document.getElementById('dk').style.display='none';
 }
 
+// Lấy giá trị của một input
+function getValue(id){
+    return document.getElementById(id).value.trim();
+}
+
+// Hiển thị lỗi
+function showError(key, mess){
+    document.getElementById(key + '_error').innerHTML = mess;
+}
+
 let userArray = [];
 let adminArray = [];
 var modal = document.querySelector('.modal');
