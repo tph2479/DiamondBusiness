@@ -136,7 +136,7 @@
 
     <!-- login form -->
     <div id="id01" class="modal">
-      <form class="modal-content animate" method="post">
+      <form id="form-login" class="modal-content animate" method="post">
         <div class="imgcontainer">
           <span
             onclick="document.getElementById('id01').style.display='none'"
@@ -149,26 +149,31 @@
 
         <div class="container">
           <form action="">
-            <label for="uname"><b>Username</b></label>
-            <input
-              class="txt"
-              id="usernamedn"
-              type="text"
-              placeholder="Enter Username"
-              name="uname"
-              required
-            />
+            <div class="form-login-div">
+              <label for="uname"><b>Username</b></label>
+              <input
+                class="txt"
+                id="usernamedn"
+                type="text"
+                placeholder="Enter Username"
+                name="uname"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
 
-            <label for="psw"><b>Password</b></label>
-            <input
-              class="txt"
-              id="passdn"
-              type="password"
-              placeholder="Enter Password"
-              name="psw"
-              required
-            />
-
+            <div class="form-login-div">
+              <label for="psw"><b>Password</b></label>
+              <input
+                class="txt"
+                id="passdn"
+                type="password"
+                placeholder="Enter Password"
+                name="psw"
+                required
+              />
+              <span class="error-message"></span>
+            </div>
             <button class="btn_txt" type="button" onclick="login()">Login</button>
             <p id="result">Welcome Login...</p>
             <button class="btn_txt" type="button" onclick="signupform()">
@@ -1251,7 +1256,7 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-      Validator({
+            Validator({
                 form: '#form-1',
                 formGroupSelector: '.form-group',
                 errorSelector: '.form-message',
@@ -1271,6 +1276,7 @@
                     console.log(data);
                 }
             });
+          
     </script>
   </body>
 </html>

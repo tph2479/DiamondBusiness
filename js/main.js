@@ -174,9 +174,6 @@ function Validator(options) {
     var selectorRules={}
     //Hàm thực hiện
     function Validate(inputElement,rule){
-        //value :inputElement.value
-        //test function: rule.test
-        // console.log(inputElement.parentElement.querySelector('.form-message'));//Get message trong lớp cha
         var errorMessage;
         var errorElelements = getParent(inputElement,options.formGroupSelector).querySelector(options.errorSelector);
         //Lấy ra các rule của selector
