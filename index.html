@@ -101,9 +101,10 @@
             <a href="#products" class="nav-item nav-link">Các sản phẩm</a>
           </div>
           <div class="d-none d-lg-flex ms-2">
-            <a class="btn-sm-square bg-white rounded-circle ms-3" href="">
+            <a onclick="document.getElementById('inputsearch').style.display='block';" class="btn-sm-square bg-white rounded-circle ms-3" href="#">
               <small class="fa fa-search text-body"></small>
             </a>
+            <input id="inputsearch" style="display: none;" class="navbar-search-input" placeholder="Nhập thông tin tìm kiếm" href=""><i class='bx bx-search-alt search-icon'></i></input>
             <a
               id="loginpupup"
               class="btn-sm-square bg-white rounded-circle ms-3"
@@ -372,6 +373,74 @@
       </div>
     </div>
     <!-- About End -->
+
+    <a id="search-box" onclick="btnSearch()" class="btn" href="#search">
+      <small class="fa fa-search"></small>
+    </a>
+
+    <!-- search nâng cao  -->
+    <section id="search" class="search">
+      <div class="no-search">
+          <img src="./img/a60759ad1dabe909c46a817ecbf71878 (1).png" alt="" >
+           <h3>Không tìm thấy sản phẩm nào</h3>
+           <h3>Hãy thử sử dụng các từ khóa chung chung hơn</h3>
+      </div>
+   <div class="search-top ">
+     
+
+           <div class="num-result " >
+               <p>Loại: 
+                   <select name="" id="select-product">
+                       <option value="all">Tất cả</option>
+                       <option value="kimcuong">Kim cương</option>
+                       <option value="vang">Vàng</option>
+                       <option value="damau">Đá màu</option>
+                   </select>
+   
+               </p> 
+               <p>Số kết quả phù hợp: <span></span> </p>
+   
+           </div>
+   
+           <div class="price-range">
+               <p>Giá:</p>
+               <input id="min-price" type="number" placeholder = "Từ...">
+               <input id="max-price" type="number" placeholder = "Đến...">
+   
+           </div>
+   
+           <div class="sort ">
+               <p>Sắp xếp: </p>
+               <select id="select-sort" name="" id="">
+                   <option value="LowToHeight">Giá: Thấp tới cao</option>
+                   <option value="HeightToLow">Giá: Cao tới thấp </option>
+               </select>
+           </div>
+
+           <div onclick="timKiemNangCao() " class="searchUpdate">
+               <i class='bx bx-search'></i>
+            </div>
+        
+       </div>
+
+       
+   
+        <div class="container">
+            
+
+            <div id="search-content" class="search-content row">
+
+            </div>
+
+           
+
+            <div class="search-pagination">
+                 <button>1</button>
+                  <button class="second" >2</button>
+                  <button>3</button>
+            </div>
+        </div>
+  </section>
 
     <!-- Product Start -->
     <div class="container-xxl py-5">
