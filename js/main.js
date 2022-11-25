@@ -266,8 +266,14 @@ function login() {
     var password = document.getElementById("passdn").value;
     var result = document.getElementById("result").value;
     
-    if(username == '' ||password == '') {
+    if(username == '' && password == '') {
         alert("Please enter username and password");
+    }
+    else if(username == '') {
+        alert("Please enter username");
+    }
+    else if(password == '') {
+        alert("Please enter password");
     }
     else {
         let userGetLocal = [];
@@ -299,7 +305,7 @@ function login() {
                         })
                 }
             }
-        if (check == 0) alert('Sai thông tin');
+        if (check == 0) alert('Wrong information');
     }
 }
 
@@ -439,6 +445,7 @@ function timKiem() {
         document.getElementById('container-visit').style.display = 'none'
         document.getElementById('container-review').style.display = 'none'
         document.getElementById('inputsearch').style.display = 'none'
+        document.getElementById('search-box').style.display = 'none'
         document.getElementById('search').style.display = 'block'
         timKiemNangCao();
     }
