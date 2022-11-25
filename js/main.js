@@ -695,22 +695,22 @@ function Pagination() {
     // </div>`;
 }
 
-let inforUser = [];
+let userFeedback = [];
 function getinforUser(e) {
-    var email_infor = document.getElementById("email-infor").value;
-    var name_infor = document.getElementById("name-infor").value;
-    if (email_infor == ''||name_infor == ''){
-        alert('Không có thông tin');
+    var User_Feedback = document.getElementById("User-Feedback").value;
+    var Username = document.getElementById("User-name").value;
+    if (User_Feedback == ''){
+        alert('Mời nhập Feedback'); 
     }
     else {
-        var userinfor = {
-            name: name_infor,
-            email: email_infor+'@gmail.com',
+        var userfeedback = {
+            username: Username,
+            feedback: User_Feedback
         }
 
-        localStorage.setItem(`userinfor${inforUser.length}`, JSON.stringify(userinfor));
-        inforUser.push(userinfor);
-        alert("Đã lưu thông tin");
+        localStorage.setItem(`userfeedback${userFeedback.length}`, JSON.stringify(userfeedback));
+        userFeedback.push(userfeedback);
+        alert("Đã lưu feedback");
         window.location.reload();
     }
 }
