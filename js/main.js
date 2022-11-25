@@ -423,6 +423,105 @@ function btnSearch(){
     document.getElementById('search-box').style.display='none';
 }
 
+//Enter search
+const node = document.getElementsByClassName("navbar-search-input")[0];
+node.addEventListener("keyup", function (event) {
+    if (event.key === "Enter") {
+        timKiem();
+    }
+});
+
+function timKiem() {
+    let search_value = node.value;
+    if (search_value.length > 0) {
+        document.getElementById('container-introduce').style.display = 'none'
+        document.getElementById('container-product').style.display = 'none'
+        document.getElementById('container-visit').style.display = 'none'
+        document.getElementById('container-review').style.display = 'none'
+        document.getElementById('inputsearch').style.display = 'none'
+        document.getElementById('search').style.display = 'block'
+        timKiemNangCao();
+    }
+    else {
+        alert('Vui lòng nhập từ khoá để tìm kiếm!');
+    }
+}
+
+function timKiemNangCao() {
+    let searchValue = node.value;
+    node.value = "";
+    let product_sort = product_arr
+    let typeProduct = document.getElementById('select-product').value;
+    let minPrice = document.getElementById('min-price').value;
+    let maxPrice = document.getElementById('max-price').value;
+    let sort = document.getElementById('select-sort').value;
+    if (minPrice == '') minPrice = 0;
+    if (maxPrice == '') maxPrice = 9999999;
+    dem = 0
+   
+    
+   
+    //  Sort Low To Height
+    if (sort == "LowToHeight")
+        for (i = 0; i < product_sort.length - 1; i++) {    
+         console.log(parseFloat(product_sort[i].giamoi.replace('đ','')))
+            for (j = i+1; j < product_sort.length; j++)
+                if (parseFloat(product_sort[i].giamoi.replace('đ','')) > parseFloat(product_sort[j].giamoi.replace('đ',''))) {
+                    let temp = product_sort[i];
+                    product_sort[i] = product_sort[j];
+                    product_sort[j] = temp
+                    console.log(product_sort[j].giamoi)    
+                    
+                }
+           
+        }
+    // Sort Height To Low
+    else
+        for (i = 0; i < product_sort.length - 1; i++) {
+            for (j = i+1; j < product_sort.length; j++)
+            if (parseFloat(product_sort[i].giamoi.replace('đ','')) < parseFloat(product_sort[j].giamoi.replace('đ','')))  {
+                    let temp = product_sort[i];
+                    product_sort[i] = product_sort[j];
+                    product_sort[j] = temp
+                }
+        }
+
+        var contentProduct = ''  
+        let tmp = []
+    for (i = 0; i < product_sort.length; i++) {
+        let aLoai = product_sort[i].loai;
+        let aGia = parseFloat(product_sort[i].giamoi.replace('đ',''))*1000000
+        console.log(aGia)
+        let aTen = product_sort[i].ten;
+
+        if ((aLoai != typeProduct && typeProduct != 'all') || aGia < minPrice || aGia > maxPrice ||
+            !aTen.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
+            continue;
+         dem++
+        tmp.push(product_sort[i])
+        
+        
+             
+         
+    }
+    if(dem==0){
+         document.getElementsByClassName('search-top')[0].style.display = 'none';
+         document.getElementsByClassName('search-content')[0].style.display = 'none';
+         document.getElementsByClassName('search-pagination')[0].style.display = 'none';
+         document.getElementsByClassName('no-search')[0].style.display = 'flex'
+
+    }else {
+         document.getElementsByClassName('search-top')[0].style.display = 'flex';
+         document.getElementsByClassName('search-content')[0].style.display = 'flex';
+         document.getElementsByClassName('search-pagination')[0].style.display = 'flex';
+         document.getElementsByClassName('no-search')[0].style.display = 'none'
+    }
+    handlePageSearch(1 , tmp)
+        document.querySelector('.num-result span').innerText = dem
+        console.log(dem)
+          
+}
+
 var products = [
     {
         type: "kim cương",
