@@ -265,37 +265,42 @@ function login() {
     var username = document.getElementById("usernamedn").value;
     var password = document.getElementById("passdn").value;
     var result = document.getElementById("result").value;
-
-    let userGetLocal = [];
-    for(let i = 1; i < localStorage.length; i++) {
-        let temp = localStorage.getItem(`user${i}`);
-        if(temp) {
-            userGetLocal.push(JSON.parse(temp));
-        }
+    
+    if(username == '' ||password == '') {
+        alert("Please enter username and password");
     }
-    userGetLocal.push(JSON.parse(localStorage.getItem('admin0')));
-    console.log('admin0');
-
-    var check = 0;
-    for (i = 0; i < userGetLocal.length; i++)
-        if (userGetLocal[i].username == username && userGetLocal[i].password == password) {
-            if (username == "admin") {
-                window.location = "admin.html";
-                console.log("Đăng nhập admin thành công");
-                check = 1;
-            } else {
-                alert("Đăng nhập thành công");
-                check = 1;
-                localStorage.setItem('flag', 1);
-
-                document.addEventListener("click", function() {
-                        document.getElementById("loginpupup").style.display = "none";
-                        document.querySelector(".modal").style.display = "none";
-                        window.location = "index.html";
-                    })
+    else {
+        let userGetLocal = [];
+        for(let i = 1; i < localStorage.length; i++) {
+            let temp = localStorage.getItem(`user${i}`);
+            if(temp) {
+                userGetLocal.push(JSON.parse(temp));
             }
         }
-    if (check == 0) alert('Đăng nhập thất bại');
+        userGetLocal.push(JSON.parse(localStorage.getItem('admin0')));
+        console.log('admin0');
+
+        var check = 0;
+        for (i = 0; i < userGetLocal.length; i++)
+            if (userGetLocal[i].username == username && userGetLocal[i].password == password) {
+                if (username == "admin") {
+                    window.location = "admin.html";
+                    console.log("Đăng nhập admin thành công");
+                    check = 1;
+                } else {
+                    alert("Đăng nhập thành công");
+                    check = 1;
+                    localStorage.setItem('flag', 1);
+
+                    document.addEventListener("click", function() {
+                            document.getElementById("loginpupup").style.display = "none";
+                            document.querySelector(".modal").style.display = "none";
+                            window.location = "index.html";
+                        })
+                }
+            }
+        if (check == 0) alert('Sai thông tin');
+    }
 }
 
 function logout() {
@@ -684,7 +689,7 @@ function getinforUser(e) {
     else {
         var userinfor = {
             name: name_infor,
-            email: email_infor,
+            email: email_infor+'@gmail.com',
         }
 
         localStorage.setItem(`userinfor${inforUser.length}`, JSON.stringify(userinfor));
