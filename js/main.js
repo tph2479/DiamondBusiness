@@ -374,53 +374,7 @@ document.getElementsByClassName('btn-modal-cart')[1].onclick = function(){
     modalCart.style.display = 'none';   
 }
 
-function removeCart(e) {
-    e.parentElement.parentElement.parentElement.parentElement.remove()
-    var x = document.getElementsByClassName('cart-row')
-    if(x.length== 0 ){
-        document.getElementsByClassName('emty-cart')[0].classList.add('active')
-        var a = document.querySelectorAll('.cart-table-list tr')
-        for(var i=0;i<a.length;i++){
-             var b = a[i]
-             b.style.display = 'none'
-        }
-   }else {
-       document.getElementsByClassName('emty-cart')[0].classList.remove('active')
-   }
-   updateCart()
-}
 
-function updateCart() {
-    var cartItemList = document.getElementsByClassName('cart-table-list')
-    for(let i = 0; i < cartItemList.length; i++){
-        var textQuantity = document.querySelector(' .cart-shopping-top-right-item p span')
-        console.log(textQuantity)
-            var cartRows = cartItemList[i].getElementsByClassName('cart-row')
-            var total = 0 ;
-            for(let i = 0; i < cartRows.length; i++) {
-                var cartRow = cartRows[i]
-                var quantityElm = cartRow.getElementsByClassName('quantityCart')[0]
-                    var priceElm = cartRow.querySelector('#price')
-                    var pricetotal = cartRow.querySelector('#price-total')
-                    var price = parseFloat(priceElm.innerText.replace('đ', ''))
-                    var quantity = quantityElm.value
-                    
-                    total = (total + (price * quantity))
-                    
-
-                
-                    pricetotal.innerHTML = `${((price *quantity)*1000000).toFixed(0)}đ`
-                
-            }
-        total = (total*1000000)
-        var x = Math.round(total)
-    }
-    document.querySelector(".sum-total h3").innerHTML = `${x}đ `
-    document.getElementById("number-total").innerHTML = `${x}đ `
-    document.getElementsByClassName('cart-info')[0].innerHTML = cartRows.length
-    document.getElementById('length-num').innerHTML = cartRows.length
-   
-}
 
 
 // search 
@@ -457,7 +411,7 @@ function timKiem() {
 function timKiemNangCao() {
     let searchValue = node.value;
     node.value = "";
-    let product_sort = product_arr
+    let product_sort = products
     let typeProduct = document.getElementById('select-product').value;
     let minPrice = document.getElementById('min-price').value;
     let maxPrice = document.getElementById('max-price').value;
@@ -471,22 +425,20 @@ function timKiemNangCao() {
     //  Sort Low To Height
     if (sort == "LowToHeight")
         for (i = 0; i < product_sort.length - 1; i++) {    
-         console.log(parseFloat(product_sort[i].giamoi.replace('đ','')))
+         console.log(parseFloat(product_sort[i].price.replace('đ','')))
             for (j = i+1; j < product_sort.length; j++)
-                if (parseFloat(product_sort[i].giamoi.replace('đ','')) > parseFloat(product_sort[j].giamoi.replace('đ',''))) {
+                if (parseFloat(product_sort[i].price.replace('đ','')) > parseFloat(product_sort[j].price.replace('đ',''))) {
                     let temp = product_sort[i];
                     product_sort[i] = product_sort[j];
                     product_sort[j] = temp
-                    console.log(product_sort[j].giamoi)    
-                    
+                    console.log(product_sort[j].price)    
                 }
-           
         }
     // Sort Height To Low
     else
         for (i = 0; i < product_sort.length - 1; i++) {
             for (j = i+1; j < product_sort.length; j++)
-            if (parseFloat(product_sort[i].giamoi.replace('đ','')) < parseFloat(product_sort[j].giamoi.replace('đ','')))  {
+            if (parseFloat(product_sort[i].price.replace('đ','')) < parseFloat(product_sort[j].price.replace('đ','')))  {
                     let temp = product_sort[i];
                     product_sort[i] = product_sort[j];
                     product_sort[j] = temp
@@ -496,20 +448,16 @@ function timKiemNangCao() {
         var contentProduct = ''  
         let tmp = []
     for (i = 0; i < product_sort.length; i++) {
-        let aLoai = product_sort[i].loai;
-        let aGia = parseFloat(product_sort[i].giamoi.replace('đ',''))*1000000
+        let aLoai = product_sort[i].type;
+        let aGia = parseFloat(product_sort[i].price.replace('đ',''))*1000000
         console.log(aGia)
-        let aTen = product_sort[i].ten;
+        let aTen = product_sort[i].name;
 
         if ((aLoai != typeProduct && typeProduct != 'all') || aGia < minPrice || aGia > maxPrice ||
             !aTen.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()))
             continue;
          dem++
         tmp.push(product_sort[i])
-        
-        
-             
-         
     }
     if(dem==0){
          document.getElementsByClassName('search-top')[0].style.display = 'none';
@@ -526,7 +474,236 @@ function timKiemNangCao() {
     handlePageSearch(1 , tmp)
         document.querySelector('.num-result span').innerText = dem
         console.log(dem)
-          
+}
+
+function changeProducts(id) {
+    var tabs = document.querySelectorAll(".menu-best-sale-title-item")
+    for (var i=0; i<tabs.length; i++){
+        tabs[i].style.background = "white"
+        tabs[i].style.color = "black"
+    }
+    document.getElementById(id).style.background = '#343434' 
+    document.getElementById(id).style.color = 'white'
+   var product = localStorage.getItem('product') ? JSON.parse(localStorage.getItem('product')) : []
+   var tmp = [];
+   var count = 0;
+   var j = 0;
+   
+   for(let i = 0; i < product.length; i++) {
+        if(product[i].loai == id){
+           tmp[j] = product[i]
+           j++
+           count++
+        }
+   }
+
+   if(localStorage.getItem('tmp')==null){
+        localStorage.setItem('tmp', JSON.stringify(tmp))
+   }
+   handlePage(1,tmp)
+}
+
+function handlePage(key , tmp) {
+    let currentPage = key;
+    let perPage = 8
+    let totalPage = Math.ceil(tmp.length / perPage)
+    let perPost = []
+     perPost = tmp.slice(
+          (currentPage - 1) * perPage,
+          (currentPage - 1) * perPage + perPage
+     )
+    console.log(perPost)
+     var contentProduct = ''
+     for(let i = 0; i < perPost.length; i++){
+         
+          contentProduct+= `
+          <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
+          <div class="menu-best-sale-content-item-img">
+          <img src= ${perPost[i].anh} alt="" class="product-img">
+                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' , '${perPost[i].giacu}', '${perPost[i].giamoi}', '${perPost[i].anh}', '${perPost[i].anh1}' , '${perPost[i].anh2}','${perPost[i].anh3}' )"></i>
+                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].giamoi}')"></i>
+                 <h5 class="discount">-${perPost[i].giamgia}</h5>
+          </div>
+  
+          <div class="menu-best-sale-content-item-content">
+               <h3 class="item-content-name">${perPost[i].ten}</h3>
+               <div class="price">
+                   <div class="price-old price-item"><del>${perPost[i].giacu}</del></div>
+                   <div class="price-new price-item">${perPost[i].giamoi}</div>
+  
+               </div>
+          </div>
+   </div>
+          `;
+     }
+  
+     document.getElementById('content').innerHTML = contentProduct;
+     var x = document.querySelector(".pagination button:first-child")
+     var y = document.querySelector(".pagination button:last-child")
+     x.onclick = function(){
+          handlePage(1,tmp)
+     }
+
+     y.onclick = function(){
+          handlePage(2,tmp)
+     }
+
+}
+
+function handlePageSearch(key ,tmp) {
+    let currentPage = key;
+    let perPage = 8
+    let totalPage = Math.ceil(tmp.length / perPage)
+    let perPost = []
+     perPost = tmp.slice(
+          (currentPage - 1) * perPage,
+          (currentPage - 1) * perPage + perPage
+     )
+    console.log(perPost)
+     var contentProduct = ''
+     for(let i = 0; i < perPost.length; i++){
+         
+          contentProduct+= `
+          <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
+          <div class="menu-best-sale-content-item-img">
+          <img src= ${perPost[i].anh} alt="" class="product-img">
+                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' , '${perPost[i].giacu}', '${perPost[i].giamoi}', '${perPost[i].anh}', '${perPost[i].anh1}' , '${perPost[i].anh2}','${perPost[i].anh3}' )"></i>
+                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].giamoi}')"></i>
+                 <h5 class="discount">-${perPost[i].giamgia}</h5>
+          </div>
+  
+          <div class="menu-best-sale-content-item-content">
+               <h3 class="item-content-name">${perPost[i].ten}</h3>
+               <div class="price">
+                   <div class="price-old price-item"><del>${perPost[i].giacu}</del></div>
+                   <div class="price-new price-item">${perPost[i].giamoi}</div>
+  
+               </div>
+          </div>
+   </div>
+          `;
+     }
+  
+     document.getElementById('search-content').innerHTML = contentProduct;
+     var x = document.querySelector(".search-pagination button:first-child")
+     var y = document.querySelector('.second')
+     var z = document.querySelector(".search-pagination button:last-child")
+     x.onclick = function(){
+          handlePageSearch(1,tmp)
+     }
+
+     y.onclick = function(){
+          handlePageSearch(2,tmp)
+     }
+
+     z.onclick = function(){
+          handlePageSearch(3,tmp)
+     }
+}
+
+// Modal Product
+function ModalProduct(anh,ten,price) {
+    modal.classList.add('active');
+    modalProduct.style.display = 'block';   
+    document.querySelector('.modal-left-top img').src = anh
+    document.querySelector('.modal-right h3').innerText = ten
+    document.querySelector('.modal-price-new').innerText = price
+   document.querySelector('.btn-modal-info').onclick = function(){
+        ModalCart(anh,ten,price)
+   }
+}
+
+function ModalCart(anh,ten,gia){
+    alert("Sản phẩm đã được thêm vào giỏ hàng")
+    var cartList = document.querySelector('.cart-table-list:last-of-type')
+    var cartItem = document.createElement('div')
+    var cartRow = document.createElement('tr');
+    cartRow.classList.add('cart-row')
+    cartItem.classList.add('cart-item')
+    cartRow.innerHTML += `
+   
+    <td width = "480px" height = "150px">
+        <div class="img-wrapper">
+            <div class="cart-img">
+                <img src=${anh} alt="">
+            </div>
+            <div class="cart-content">
+                <p class = 'namesp' >${ten}</p>
+                <a onclick = "removeCart(this)" href="#">Bỏ sản phẩm</a>
+            </div>
+
+        </div>
+    </td>
+
+    <td width= "170px">
+           <h3 id="price" class="price-new">
+               ${gia}
+           </h3>
+
+    </td>
+
+    <td width ="170px">
+
+            <input onchange = "updateCart()" class="quantityCart" type="number" min="1" value="1">
+    </td>
+
+     <td width ="170px">
+             <h3 id="price-total" class="price-new text-center price-modal">
+                ${gia}
+             </h3>
+     </td>
+
+    `;
+
+    cartList.appendChild(cartRow)
+    updateCart()
+}
+
+function removeCart(e) {
+    e.parentElement.parentElement.parentElement.parentElement.remove()
+    var x = document.getElementsByClassName('cart-row')
+    if(x.length== 0 ){
+        document.getElementsByClassName('emty-cart')[0].classList.add('active')
+        var a = document.querySelectorAll('.cart-table-list tr')
+        for(var i=0;i<a.length;i++){
+             var b = a[i]
+             b.style.display = 'none'
+        }
+   }else {
+       document.getElementsByClassName('emty-cart')[0].classList.remove('active')
+   }
+   updateCart()
+}
+
+function updateCart() {
+    var cartItemList = document.getElementsByClassName('cart-table-list')
+    for(let i = 0; i < cartItemList.length; i++){
+         var textQuantity = document.querySelector('.cart-shopping-top-right-item p span')
+         console.log(textQuantity)
+              var cartRows = cartItemList[i].getElementsByClassName('cart-row')
+              var total = 0 ;
+              for(let i = 0; i < cartRows.length; i++) {
+                   var cartRow = cartRows[i]
+                   var quantityElm = cartRow.getElementsByClassName('quantityCart')[0]
+                        var priceElm = cartRow.querySelector('#price')
+                        var pricetotal = cartRow.querySelector('#price-total')
+                        var price = parseFloat(priceElm.innerText.replace('đ', ''))
+                        var quantity = quantityElm.value
+                        
+                        total = (total + (price * quantity))
+                        pricetotal.innerHTML = `${((price *quantity)*1000000).toFixed(0)}đ`
+                   
+              }
+             
+            total = (total*1000000)
+            var x = Math.round(total)
+    }
+
+    document.querySelector(".sum-total h3").innerHTML = `${x}đ `
+    document.getElementById("number-total").innerHTML = `${x}đ `
+    document.getElementsByClassName('cart-info')[0].innerHTML = cartRows.length
+    document.getElementById('length-num').innerHTML = cartRows.length
+    
 }
 
 var products = [

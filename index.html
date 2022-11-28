@@ -440,7 +440,94 @@
                   <button>3</button>
             </div>
         </div>
-  </section>
+    </section>
+
+    <section id="best-sale" class="best-sale">
+      <div class="container">
+          <div class="section-title" >
+              <h3>TOP SẢN PHẨM BÁN CHẠY</h3>
+              <div class="title-line"></div>
+          </div>
+          <div class="menu-best-sale-title row">
+              
+              <div id="vàng" class="menu-best-sale-title-item col-sm-12"  onclick="changeProducts('nam' , this)">
+                  <h3>Vàng</h3>
+              </div>
+
+              <div id="kim cương" class="menu-best-sale-title-item" onclick = "changeProducts('nu' , this)">
+                  <h3>Kim cương</h3>
+              </div>
+
+
+              <div id="đá màu" class="menu-best-sale-title-item" onclick = "changeProducts('phukien' , this)">
+                  <h3>Đá màu</h3>
+              </div>
+          </div>
+         
+
+          <div id="content"  class="menu-best-sale-content row">
+              <!-- <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
+                         <div class="menu-best-sale-content-item-img">
+                                <img src="./img/nam1.jpg" alt="" class="product-img">
+                                <i class='bx bx-bullseye product-icon eye'onclick="ModalProduct()"></i>
+                                <i class='bx bx-shopping-bag product-icon'</i>
+                                <h5 class="discount"></h5>
+                         </div>
+
+                         <div class="menu-best-sale-content-item-content">
+                              <h3 class="item-content-name">Black Pink</h3>
+                              <div class="price">
+                                  <div class="price-old price-item"><del>4.500.000đ</del></div>
+                                  <div class="price-new price-item">3.200.000đ</div>
+                              </div>
+                         </div>
+              </div> -->
+             
+          </div>
+
+           <div class="pagination">
+               <button>1</button >
+               <button id="pagination-2" >2</button> 
+           </div>
+              
+             
+      
+      </div>
+    </section>
+
+    <div class="modal-product">
+      <i class='bx bx-x close-modal-product'></i>
+      <div class="modal-wrapper row">
+          <div class="modal-left col-6">
+                <div class="modal-left-top">
+                     <img src="./img/nam1.jpg" alt="">
+                </div>
+
+                <div class="modal-left-bottom">
+                     <div  class="modal-left-bottom-item anh1" >
+                          <img src="./img/product-1.jpg" alt="" onclick="ChangeModalPicture(this.src)">
+                     </div>
+                </div>
+
+          </div>
+
+          <div class="modal-right col-6">
+                  <h3>Lắc/vòng DJB177</h3>
+                  <div class="modal-oringal">
+                      <p>Thương hiệu : Đang cập nhật </p>  
+                      <div class="line"></div>
+                      <p>Mã sản phẩm : Đang cập nhật</p>
+                  </div>
+                  <div class="modal-price">
+                      <div class="modal-price-new"><h1>100,130,000đ</h1></div>
+                  </div>
+
+                  <a  href="#" class="btn btn-modal-info">
+                      Thêm vào sản phẩm
+                  </a>
+          </div>
+      </div>
+  </div>
 
     <!-- Product Start -->
     <div id="container-product" class="container-xxl py-5">
