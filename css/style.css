@@ -420,6 +420,18 @@
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
+.show-password {
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  cursor: pointer;
+  border: 2px solid rgba(106, 93, 93, 0.5);
+}
+
+.show-password:hover {
+  background-color: rgba(214, 48, 48, 0.9);
+  border-radius: 50%;
+}
+
 /* Full-width input fields */
 .txt {
   width: 100%;

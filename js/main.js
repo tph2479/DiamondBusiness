@@ -261,6 +261,17 @@ function Validator(options) {
     }
 }
 
+document.getElementById('show-pass').onclick = function() {
+    let password = document.getElementById('passdn');
+    password.type = password.type == 'password' ? 'text' : 'password';
+    if (password.type == 'text') {
+        document.getElementById('show-pass').innerHTML = `Hide password`;
+    }
+    else {
+        document.getElementById('show-pass').innerHTML = `Show password`;
+    }
+}
+
 function login() {
     var username = document.getElementById("usernamedn").value;
     var password = document.getElementById("passdn").value;
