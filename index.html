@@ -451,16 +451,16 @@
           </div>
           <div class="menu-best-sale-title row">
               
-              <div id="vàng" class="menu-best-sale-title-item col-sm-12"  onclick="changeProducts('nam' , this)">
+              <div id="vàng" class="menu-best-sale-title-item col-sm-12"  onclick="changeProducts('vàng' , this)">
                   <h3>Vàng</h3>
               </div>
 
-              <div id="kim cương" class="menu-best-sale-title-item" onclick = "changeProducts('nu' , this)">
+              <div id="kim cương" class="menu-best-sale-title-item" onclick = "changeProducts('kim cương' , this)">
                   <h3>Kim cương</h3>
               </div>
 
 
-              <div id="đá màu" class="menu-best-sale-title-item" onclick = "changeProducts('phukien' , this)">
+              <div id="đá màu" class="menu-best-sale-title-item" onclick = "changeProducts('đá màu' , this)">
                   <h3>Đá màu</h3>
               </div>
           </div>
@@ -496,18 +496,21 @@
       </div>
     </section>
 
-    <div class="modal-product">
-      <i class='bx bx-x close-modal-product'></i>
+    <div id="modal-product" class="modal-product">
+      <span
+        onclick="document.getElementById('modal-product').style.display='none'"
+        class="close"
+        title="Close Modal"
+        >&times;</span
+      >
       <div class="modal-wrapper row">
           <div class="modal-left col-6">
                 <div class="modal-left-top">
-                     <img src="./img/nam1.jpg" alt="">
+                    <img src="./img/nam1.jpg" alt=""> 
                 </div>
 
                 <div class="modal-left-bottom">
-                     <div  class="modal-left-bottom-item anh1" >
-                          <img src="./img/product-1.jpg" alt="" onclick="ChangeModalPicture(this.src)">
-                     </div>
+                    <img src="./img/product-1.jpg" alt="" onclick="ChangeModalPicture(this.src)">
                 </div>
 
           </div>
@@ -524,7 +527,7 @@
                   </div>
 
                   <a  href="#" class="btn btn-modal-info">
-                      Thêm vào sản phẩm
+                      Thêm vào giỏ hàng
                   </a>
           </div>
       </div>

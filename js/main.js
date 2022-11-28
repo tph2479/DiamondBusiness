@@ -103,6 +103,8 @@ function signup(e) {
     var emaildk = document.getElementById("email").value;
     var phonedk = document.getElementById("phone").value;
     var password_confirmation = document.getElementById("password_confirmation").value;
+    var today = new Date()
+    var day =  String(today.getDate())+"/"+String(today.getMonth() + 1)+"/"+String(today.getFullYear())
     if (usernamedk == ''||passdk == ''||phonedk == ''||emaildk == ''||password_confirmation == ''){
         alert('Không được để trống thông tin');
     }
@@ -113,7 +115,8 @@ function signup(e) {
             email: emaildk,
             phone: phonedk,
             repasswd: password_confirmation,
-            typeUser: "member"
+            typeUser: "member",
+            datesignup: day
         }
 
         localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
@@ -338,7 +341,8 @@ function CreateAdmin() {
             email: 'admin@gmail.com',
             phone: '0901324565',
             repasswd: '12345678',
-            typeUser: 'admin'
+            typeUser: 'admin',
+            datesignup: '20/4/2021'
             
         };
         localStorage.setItem(`admin${userArray.length}`, JSON.stringify(user));
@@ -351,7 +355,8 @@ function CreateAdmin() {
             email: 'user1@gmail.com',
             phone: '0901324123',
             repasswd: '12345678',
-            typeUser: 'member'
+            typeUser: 'member',
+            datesignup: '20/5/2021'
         };
         localStorage.setItem(`user${userArray.length}`, JSON.stringify(user));
         userArray.push(user);
