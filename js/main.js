@@ -939,7 +939,7 @@ let get_item_lc = localStorage.getItem('products');
 if(get_item_lc){
     products = JSON.parse(get_item_lc);
 }
-console.log(products);
+
 
 function Pagination() {
     next("kim cương", 1);

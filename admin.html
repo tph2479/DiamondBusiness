@@ -13,7 +13,6 @@
 <body>
     <button class="btn back-trangchu" style="float: left;cursor: pointer;" onclick="trangchu()"><i class="fas fa-home"></i> Trang Chủ</button>
     <button class="btn addsp" style="cursor: pointer;" onclick="random();document.getElementById('addsp').style.display='block'"><i class="fas fa-plus"></i> Thêm sản phẩm</button>
-    <button class="btn delsp" style="cursor: pointer;" onclick="document.getElementById('delsp').style.display='block'"><i class="fas fa-trash-alt"></i> Xóa sản phẩm</button>
 
     <div class="form-addsp" id="addsp">
         <form action="" class="form-add">
@@ -60,7 +59,7 @@
         </form>
     </div>
 
-    <div style="display:none;" class="form-deletesp" id="delsp">
+    <div class="showsp">
         <form action="" class="form-delsp">
 
             <table id="" class="table">
@@ -69,11 +68,9 @@
                         <th></th>
                         <th>ID</th>
                         <th>Thể loại</th>
-                        <th>Tên</th>
+                        <th>Tên sản phẩm</th>
                         <th>Giá</th>
-                        <th></th>
-                        <th>Sale</th>
-                        <th>&emsp;Ảnh sản phẩm</th>
+                        <th>Ảnh sản phẩm</th>
                     </tr>
                 </thead>
                 <tbody id="tbodySanPham">
@@ -81,7 +78,6 @@
                 </tbody>
             </table>
 
-            <button type="button" style="cursor: pointer;" class="btn btn-primary" onclick="document.getElementById('delsp').style.display='none'"><i class="fas fa-minus"></i> Thu gọn</button>
             <button type="button" style="float: right;cursor: pointer;" class="btn btn-success" onclick="document.getElementById('xacnhanxoa').style.display='block'" id="addnfix"><i class="fas fa-trash-alt"></i> Xóa sản phẩm</button>
             <div id="xacnhanxoa" style="z-index: 1;height: 30%;background-color: #8cc7ee;display: none;">
                 <div style="margin-top: 10%; color: #1877f2; text-align: center;height: 40%;">Xác nhận xóa</div>
