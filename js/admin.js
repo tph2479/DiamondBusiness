@@ -14,9 +14,9 @@ function thugon() {
     document.getElementById("addimg").value = "";
     document.getElementById("pic").innerHTML = "";
     document.getElementById("giasp").value = "";
-    document.getElementById("sale").value = "";
     document.getElementById("addnfix").innerHTML = "Thêm sản phẩm";
     document.getElementById("addsp").style.display = "none";
+    window.location.reload();
     add = 0;
 }
 
@@ -267,13 +267,17 @@ function createProduct() {
   }
 // let product_item = {id, type, name, price, img}; //Tạo obj sản phẩm
 function them(){
+    let id = document.getElementById("masp").value;
     let type = document.getElementById("theloai").value;
     let name = document.getElementById("tensp").value;
-    let get_child_pic = document.getElementById("pic").firstElementChild;
-    let img = '';
-    if(get_child_pic){
-        img = get_child_pic.src;
-    }
+    // let get_child_pic = document.getElementById("addimg").firstElementChild;
+    // let img = '';
+    // if(get_child_pic){
+    //     img = get_child_pic.src;
+    // }
+    let img = document.getElementById("addimg").value;
+    console.log(img);
+    img = 'img/' + img.slice(12);
     let price = parseInt(document.getElementById("giasp").value);
     
     let product_item = {id, type, name, price, img}; //Tạo obj sản phẩm
@@ -285,32 +289,35 @@ function them(){
         products = JSON.parse(get_item_lc);             //móc sp từ local ra
         products.push(product_item);                    //add thêm sp mới vào mảng
     }
-
+    alert("Đã thêm sản phẩm")
+    window.location.reload(); 
     localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
+    
 }
 
 let get_item_lc = localStorage.getItem('products');
 if(get_item_lc){
     productArray = JSON.parse(get_item_lc);
 }
-console.log(productArray);
+// console.log(products);
 function showproduct() {
     if (localStorage.getItem('products') === null) {
         return false;
     }
-    let s = "";
+    var s = "";
     let a = "";
-    for (let i = 0; i < productArray.length; i++) {
+    console.log(s);
+    for (let i = 0; i < products.length; i++) {
         a = 
-            `<tr>`
-                `<td></td>`
-                `<td>`+ productArray[i].id +`</td>`
-                `<td>`+ productArray[i].type +`</td>`
-                `<td>`+ productArray[i].name +`</td>`
-                `<td>`+ productArray[i].price +`</td>`
-                `<td> <img src="`+ productArray[i].img +`<"style="witdh:100px;height:100px"> /td>`
-                '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua(' + productArray[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + productArray[i].id + ')"></td>' +
-            `</tr>`
+            `<tr>`+
+                `<td></td>`+
+                `<td>`+ products[i].id +`</td>`+
+                `<td>`+ products[i].type +`</td>`+
+                `<td>`+ products[i].name +`</td>`+
+                `<td>`+ products[i].price +`</td>`+
+                `<td> <img src="`+ products[i].img +`<"style="witdh:100px;height:100px"> /td>`+
+                '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua(' + products[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + products[i].id + ')"></td>' +
+            +`</tr>`;
         s += a;
 
     }
