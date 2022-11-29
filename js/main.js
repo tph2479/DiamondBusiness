@@ -549,8 +549,7 @@ function handlePage(key , tmp) {
           <div class="menu-best-sale-content-item-content">
                <h3 class="item-content-name">${perPost[i].ten}</h3>
                <div class="price">
-                   <div class="price-old price-item"><del>${perPost[i].giacu}</del></div>
-                   <div class="price-new price-item">${perPost[i].giamoi}</div>
+                   <div class="price-new price-item">${perPost[i].price}</div>
   
                </div>
           </div>
@@ -588,16 +587,14 @@ function handlePageSearch(key ,tmp) {
           <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
           <div class="menu-best-sale-content-item-img">
           <img src= ${perPost[i].anh} alt="" class="product-img">
-                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' , '${perPost[i].giacu}', '${perPost[i].giamoi}', '${perPost[i].anh}', '${perPost[i].anh1}' , '${perPost[i].anh2}','${perPost[i].anh3}' )"></i>
-                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].giamoi}')"></i>
-                 <h5 class="discount">-${perPost[i].giamgia}</h5>
+                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' ,'${perPost[i].price}',' )"></i>
+                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].price}')"></i>
           </div>
   
           <div class="menu-best-sale-content-item-content">
                <h3 class="item-content-name">${perPost[i].ten}</h3>
                <div class="price">
-                   <div class="price-old price-item"><del>${perPost[i].giacu}</del></div>
-                   <div class="price-new price-item">${perPost[i].giamoi}</div>
+                   <div class="price-new price-item">${perPost[i].price}</div>
   
                </div>
           </div>

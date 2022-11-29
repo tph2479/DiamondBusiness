@@ -5,7 +5,7 @@ function trangchu() {
 function swappic() {
     let img = document.getElementById("addimg").value;
     img = 'img/' + img.slice(12);
-    document.getElementById("pic").innerHTML = '<img src="' + img + '"style="width:25%">';
+    document.getElementById("pic").innerHTML = '<img src="' + img + '"style="width:30%">';
 }
 
 function thugon() {
@@ -16,7 +16,6 @@ function thugon() {
     document.getElementById("giasp").value = "";
     document.getElementById("addnfix").innerHTML = "Thêm sản phẩm";
     document.getElementById("addsp").style.display = "none";
-    window.location.reload();
     add = 0;
 }
 
@@ -270,33 +269,47 @@ function them(){
     let id = document.getElementById("masp").value;
     let type = document.getElementById("theloai").value;
     let name = document.getElementById("tensp").value;
-    // let get_child_pic = document.getElementById("addimg").firstElementChild;
-    // let img = '';
-    // if(get_child_pic){
-    //     img = get_child_pic.src;
-    // }
     let img = document.getElementById("addimg").value;
     console.log(img);
-    img = 'img/' + img.slice(12);
+    img = 'img/' + img.slice(15);
     let price = parseInt(document.getElementById("giasp").value);
     
     let product_item = {id, type, name, price, img}; //Tạo obj sản phẩm
 
     let get_item_lc = localStorage.getItem("products");
-    if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
-        products.push(product_item);        //thì add sp mới vào lần đầu tiên
-    }else{                  //local đã có sản phẩm
-        products = JSON.parse(get_item_lc);             //móc sp từ local ra
-        products.push(product_item);                    //add thêm sp mới vào mảng
+    if(id == ''||type == ''||name == ''||price == ''){
+        alert("Mời nhập đủ thông tin để thêm sản phẩm ");
+    }else {
+        if(!checkID(id)) {
+            if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
+                products.push(product_item);        //thì add sp mới vào lần đầu tiên
+            }else{                  //local đã có sản phẩm
+                products = JSON.parse(get_item_lc);             //móc sp từ local ra
+                products.push(product_item);                    //add thêm sp mới vào mảng
+            }
+            alert("Đã thêm sản phẩm");
+            window.location.reload();
+            localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
+            showProduct();
+        }else { 
+            alert("Trùng mã sản phẩm");
+        }
     }
-    alert("Đã thêm sản phẩm")
-    window.location.reload(); 
-    localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
     
 }
 
+var list = this.products;
+
+function checkID(id) {
+    for (var i = 0; i < list.length; i++) {
+        if(list[i].id == id) {
+            return true;
+        }
+    }
+}
+
 function showProduct(){
-    var list = this.products;
+    // var list = this.products;
     var table = 
         `<table id="" class="table">
             <tbody id="tbodySanPham">`;
@@ -315,6 +328,61 @@ function showProduct(){
         </table>`;
         document.getElementById("tbodySanPham").innerHTML = table;
 }
+
+let k;
+
+//xóa theo id
+function xoa(id) {
+    // var list = this.products;
+    document.getElementById("xacnhanxoa").style.display = "block";
+    for (let i = 0; i < list.length; i++) {
+        if (list[i].productId == id) {
+            k == i;
+            break;
+        }
+    }
+}
+
+function xacnhan() {
+    // var list = this.products;
+    list.splice(k, 1);
+    window.localStorage.removeItem("products");
+    localStorage.setItem('products', JSON.stringify(list));
+    showproduct();
+    document.getElementById("xacnhanxoa").style.display = "none";
+}
+
+function huy() {
+    document.getElementById("xacnhanxoa").style.display = "none";
+}
+
+// let product1 = new product();
+
+function sua(id) {
+    document.getElementById("addsp").style.display="block";
+    for (var i = 0; i < list.length; i++) {
+        if (list[i].productId == id) {
+            // product1 = list[i];
+            // break;
+            document.getElementById("masp").value = list[i].id;
+            document.getElementById("theloai").value = list[i].type;
+            document.getElementById("tensp").value = list[i].name;
+            document.getElementById("giasp").value = list[i].price;
+            document.getElementById("pic").value = list[i].img;
+        }
+    }
+    // document.getElementById("masp").value = product1.productId;
+    // document.getElementById("theloai").value = product1.brand;
+    // document.getElementById("tensp").value = product1.name;
+    // document.getElementById("pic").innerHTML = '<img src="' + product1.img + '"style="width:100px;height:100px">';
+    // document.getElementById("giasp").value = product1.price;
+    
+    // document.getElementById("addsp").setAttribute("style", "opacity:1");
+    // document.getElementById("addnfix").innerHTML = "Cập nhật";
+    add = 2;
+}
+
 window.onload = function() {
     showProduct();
+    // createProduct();
 }
