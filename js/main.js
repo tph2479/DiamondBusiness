@@ -727,99 +727,208 @@ var products = [
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
-        price: "100,130,000đ"
+        price: 100130000
     },
     {
         type: "kim cương",
         name: "Nhẫn DJR3259",
         img: "product-2.jpg",
-        price: "58,970,000đ"
+        price: 58970000
     },
     {
         type: "kim cương",
         name: "Hoa tai DJE1137",
         img: "product-3.jpg",
-        price: "89,700,000đ"
+        price: 89700000
     },
     {
         type: "kim cương",
         name: "Hoa tai DJE1136",
         img: "product-4.jpg",
-        price: "71,180,000đ"
+        price: 71180000
     },
     {
         type: "kim cương",
         name: "Mặt dây kim cương FDCP0300",
         img: "product-5.jpg",
-        price: "42,830,000đ"
+        price: 42830000
     },
     {
         type: "kim cương",
         name: "Mặt dây kim cương FDCP0205",
         img: "product-6.jpg",
-        price: "44,360,000đ"
+        price: 44360000
     },
     {
         type: "kim cương",
         name: "Nhẫn Kim cương FDR0018",
         img: "product-7.jpg",
-        price: "31,500,000đ"
+        price: 31500000
     },
-    // {
-    //     type: "kim cương",
-    //     name: "Hoa tai kim cương FDE0015",
-    //     img: "product-8.jpg",
-    //     price: "44,490,000đ"
-    // },
-
+    {
+        type: "kim cương",
+        name: "Hoa tai kim cương FDE0015",
+        img: "product-8.jpg",
+        price: 44490000
+    },
+    {
+        type: "kim cương",
+        name: "Lắc/vòng DJB177",
+        img: "product-1.jpg",
+        price: 100130000
+    },
     {
         type: "vàng",
         name: "Vòng charrm CB60035DD",
         img: "product-25.jpg",
-        price: "3,900,000đ"
+        price: 3900000
     },
     {
         type: "vàng",
         name: "Ghim cài áo Cúc họa mi LH60011",
         img: "product-26.jpg",
-        price: "9,090,000đ"
+        price: 9090000
     },
     {
         type: "vàng",
         name: "Dây vàng collier LN000256",
         img: "product-27.jpg",
-        price: "5,630,000đ"
+        price: 5630000
     },
     {
         type: "vàng",
         name: "Ghim cài áo Cúc họa mi LH60011",
         img: "product-28.jpg",
-        price: "5,590,000đ"
+        price: 5590000
     },
-
+    {
+        type: "vàng",
+        name: "Dây chữ Vạn FP60695",
+        img: "product-29.jpg",
+        price: 4100000
+    },
+    {
+        type: "vàng",
+        name: "Dây chữ Vạn MP6023",
+        img: "product-31.jpg",
+        price: 4200000
+    },
+    {
+        type: "vàng",
+        name: "Lắc tay LB90120",
+        img: "product-31.jpg",
+        price: 18900000
+    },
+    {
+        type: "vàng",
+        name: "Lắc tay LB90122",
+        img: "product-32.jpg",
+        price: 9280000
+    },
     {
         type: "đá màu",
         name: "Hoa tai Citrine GJE473",
         img: "product-33.jpg",
-        price: "9,280,000đ"
+        price: 9280000
     },
     {
         type: "đá màu",
         name: "Nhẫn Ruby GJR468",
         img: "product-34.jpg",
-        price: "10,930,000đ"
+        price: 10930000
     },
+    {
+        type: "đá màu",
+        name: "Dây chuyền Emerald GJCP697",
+        img: "product-35.jpg",
+        price: 31270000
+    },
+    {
+        type: "đá màu",
+        name: "Lắc/vòng đá FGB14484",
+        img: "product-36.jpg",
+        price: 223770000
+    },
+    {
+        type: "đá màu",
+        name: "Bông tai Peridot NA722-WG",
+        img: "product-37.jpg",
+        price: 9930000
+    },
+    {
+        type: "đá màu",
+        name: "Nhẫn Topaz NA722-WG",
+        img: "product-38.jpg",
+        price: 7000000
+    },
+    {
+        type: "đá màu",
+        name: "Hoa tai Ruby GJE706",
+        img: "product-39.jpg",
+        price: 16920000
+    },
+    {
+        type: "đá màu",
+        name: "Nhẫn Topaz GJR349",
+        img: "product-40.jpg",
+        price: 7010000
+    }
 ];
 
 // phân trang bằng onclick tham số được tạo động ví dụ next("vàng", 8) lấy tám trang tiếp theo của vàng
 
 function Pagination() {
-    var product_items_0 = "";
-    var product_items_1 = "";
-    var product_items_2 = "";
-    var product_items_3 = "";
-    for(var i = 0; i < products.length; i++) {
-        var product_item = `
+    next("kim cương", 1);
+    next("đá màu", 1);
+    next("vàng", 1);
+}
+
+function next(type, current) {
+    let products = nextPage(type, current);
+
+    let htmlcontent = `
+    <div class="row g-4">
+        ${products.content}  
+    `;
+
+    if(nextPage(type, products.index).content !== "")
+        htmlcontent += `
+            <button onclick="next('kim cương', ${products.index})">Next</button>
+        `;
+
+    htmlcontent += "</div>";
+    
+
+    if(type.localeCompare("kim cương") === 0) {
+        document.getElementById("tab-1").innerHTML = htmlcontent;
+    } else if(type.localeCompare("vàng") === 0) {
+        document.getElementById("tab-2").innerHTML = htmlcontent;
+    } else {
+        document.getElementById("tab-3").innerHTML = htmlcontent;
+    }
+
+}
+
+function nextPage(type, current) {
+    let productsreturn = "";
+    let k = 0;
+
+    // before current
+    // after current
+
+    if(current < products.length)
+
+    for(let i = 0, j = 0; i < products.length; i++) {
+        if(products[i].type.localeCompare(type) !== 0)
+            continue;
+
+        k++;
+        // before current
+        if(k < current) {
+            continue;
+        }
+
+        let product_item = `
             <div class="col-xl-3 col-lg-4 col-md-6">
                 <div class="product-item">
                     <div class="position-relative bg-light overflow-hidden">
@@ -855,37 +964,15 @@ function Pagination() {
                 </div>
             </div>`;
 
-        if(products[i].type.localeCompare("kim cương") === 0)
-            product_items_1 += product_item;
-        else if(products[i].type.localeCompare("vàng") === 0)
-            product_items_2 += product_item;
-        else
-            product_items_3 += product_item;
-        
+        productsreturn += product_item;
+
+        // after current
+        j++;
+        if(j >= 8)
+            break;
     }
 
-    document.getElementById("tab-1").innerHTML = `
-    <div class="row g-4">
-        ${product_items_1}
-    </div>`;
-
-    document.getElementById("tab-2").innerHTML = `
-    <div class="row g-4">
-        ${product_items_2}
-    </div>`;
-
-    document.getElementById("tab-3").innerHTML = `
-    <div class="row g-4">
-        ${product_items_3}
-    </div>`;
-
-    // document.getElementById("tab-1").innerHTML = `
-    // <div class="row g-4">
-    //     ${product_items_1}
-    //     <div class="col-12 text-center">
-    //         <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-    //     </div>
-    // </div>`;
+    return {content: productsreturn, index: current + k};
 }
 
 let userFeedback = [];
