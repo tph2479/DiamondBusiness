@@ -295,31 +295,26 @@ function them(){
     
 }
 
-let get_item_lc = localStorage.getItem('products');
-if(get_item_lc){
-    productArray = JSON.parse(get_item_lc);
-}
-// console.log(products);
-function showproduct() {
-    if (localStorage.getItem('products') === null) {
-        return false;
-    }
-    var s = "";
-    let a = "";
-    console.log(s);
-    for (let i = 0; i < products.length; i++) {
-        a = 
-            `<tr>`+
-                `<td></td>`+
-                `<td>`+ products[i].id +`</td>`+
-                `<td>`+ products[i].type +`</td>`+
-                `<td>`+ products[i].name +`</td>`+
-                `<td>`+ products[i].price +`</td>`+
-                `<td> <img src="`+ products[i].img +`<"style="witdh:100px;height:100px"> /td>`+
-                '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua(' + products[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + products[i].id + ')"></td>' +
-            +`</tr>`;
-        s += a;
+function showProduct(){
+    var list = this.products;
+    var table = 
+        `<table id="" class="table">
+            <tbody id="tbodySanPham">`;
+            for(var i = 0; i < list.length; i++) {
+                table += `<tr>`;
+                table += `<td>` +list[i].id+ `</td>`;
+                table += `<td>` +list[i].type+ `</td>`;
+                table += `<td>` +list[i].name+ `</td>`;
+                table += `<td>` +list[i].price+ `</td>`;
+                table += `<td><img src="` +list[i].img+ `"style="witdh:100px;height:100px"></td>`;
+                table += '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua('+ list[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + list[i].id + ')"></td>';
+                table += `</tr>`;
+            }
 
-    }
-    document.getElementById("tbodySanPham").innerHTML = s;
+            table += `</tbody>
+        </table>`;
+        document.getElementById("tbodySanPham").innerHTML = table;
+}
+window.onload = function() {
+    showProduct();
 }
