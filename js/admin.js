@@ -446,6 +446,8 @@ window.onload = function() {
     let get_item_lc = localStorage.getItem('products');
     if(get_item_lc){
         products = JSON.parse(get_item_lc);
+    } else {
+        localStorage.setItem("products", JSON.stringify(products));
     }
     showProduct();
     createProduct();
