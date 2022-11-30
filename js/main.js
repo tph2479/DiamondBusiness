@@ -993,6 +993,8 @@ function addItemToCart(id) {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+
+
 let userFeedback = [];
 function getinforUser(e) {
     var User_Feedback = document.getElementById("User-Feedback").value;
