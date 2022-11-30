@@ -933,9 +933,9 @@ function updateCart() {
 
 function Pagination() {
     next("kim cương", 1);
-    next("đá màu", 1);
     next("vàng", 1);
-    next("sale",1);
+    next("đá màu", 1);
+    //next("sale",1);
 }
 
 function next(type, current) {
@@ -958,7 +958,7 @@ function next(type, current) {
         document.getElementById("tab-1").innerHTML = htmlcontent;
     } else if(type.localeCompare("vàng") === 0) {
         document.getElementById("tab-2").innerHTML = htmlcontent;
-    } else {
+    } else if(type.localeCompare("đá màu") === 0) {
         document.getElementById("tab-3").innerHTML = htmlcontent;
     }
 
