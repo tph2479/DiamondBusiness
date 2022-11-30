@@ -396,7 +396,6 @@ document.getElementsByClassName('btn-modal-cart')[1].onclick = function(){
 // search 
 function btnSearch(){
     document.getElementById('search').style.display='block';
-    document.getElementById('search-box').style.display='none';
 }
 
 //Enter search
@@ -415,7 +414,6 @@ function timKiem() {
         document.getElementById('container-visit').style.display = 'none'
         document.getElementById('container-review').style.display = 'none'
         document.getElementById('inputsearch').style.display = 'none'
-        document.getElementById('search-box').style.display = 'none'
         document.getElementById('search').style.display = 'block'
         timKiemNangCao();
     }
