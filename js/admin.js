@@ -287,10 +287,20 @@ function them(){
     img = img.split("\\")[img.split("\\").length - 1];
     let price = parseInt(document.getElementById("giasp").value);
     
+    let max = products[0].id;
+    for(let i = 0; i < products.length; i++) {
+        if(max < products[i].id)
+            max = products[i].id;
+    }
+    id = max + 1;
+
     let product_item = {id: id, type: type, name: name, img: img, price: price}; //Tạo obj sản phẩm
+
 
     products.push(product_item);
     localStorage.setItem("products", JSON.stringify(products));
+    alert("added");
+    showProduct();
 
     // let get_item_lc = localStorage.getItem("products");
     // if(id == ''||type == ''||name == ''||price == ''){
@@ -433,6 +443,10 @@ function sua1() {
 }
 
 window.onload = function() {
+    let get_item_lc = localStorage.getItem('products');
+    if(get_item_lc){
+        products = JSON.parse(get_item_lc);
+    }
     showProduct();
     createProduct();
 }
