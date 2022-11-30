@@ -433,5 +433,5 @@ function sua1() {
 
 window.onload = function() {
     showProduct();
-    // createProduct();
+    createProduct();
 }
