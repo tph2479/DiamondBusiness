@@ -98,7 +98,7 @@ var modal = document.querySelector('.modal');
 var modalCart = document.querySelector('.modal-cart');
 
 function signup(e) {
-    var usernamedk = document.getElementById("fullname").value;
+    var usernamedk = document.getElementById("fullname").value.toLowerCase();
     var passdk = document.getElementById("password").value;
     var emaildk = document.getElementById("email").value;
     var phonedk = document.getElementById("phone").value;
@@ -276,7 +276,7 @@ document.getElementById('show-pass').onclick = function() {
 }
 
 function login() {
-    var username = document.getElementById("usernamedn").value;
+    var username = document.getElementById("usernamedn").value.toLowerCase();
     var password = document.getElementById("passdn").value;
     var result = document.getElementById("result").value;
     
@@ -435,15 +435,17 @@ function timKiemNangCao() {
     if (minPrice == '') minPrice = 0;
     if (maxPrice == '') maxPrice = 9999999;
     dem = 0
+
+    console.log(product_sort)
    
     
    
     //  Sort Low To Height
     if (sort == "LowToHeight")
         for (i = 0; i < product_sort.length - 1; i++) {    
-         console.log(parseFloat(product_sort[i].price.replace('đ','')))
+         console.log(parseInt(product_sort[i].price.replace('đ','')))
             for (j = i+1; j < product_sort.length; j++)
-                if (parseFloat(product_sort[i].price.replace('đ','')) > parseFloat(product_sort[j].price.replace('đ',''))) {
+                if (parseInt(product_sort[i].price.replace('đ','')) > parseInt(product_sort[j].price.replace('đ',''))) {
                     let temp = product_sort[i];
                     product_sort[i] = product_sort[j];
                     product_sort[j] = temp
@@ -454,7 +456,7 @@ function timKiemNangCao() {
     else
         for (i = 0; i < product_sort.length - 1; i++) {
             for (j = i+1; j < product_sort.length; j++)
-            if (parseFloat(product_sort[i].price.replace('đ','')) < parseFloat(product_sort[j].price.replace('đ','')))  {
+            if (parseInt(product_sort[i].price.replace('đ','')) < parseInt(product_sort[j].price.replace('đ','')))  {
                     let temp = product_sort[i];
                     product_sort[i] = product_sort[j];
                     product_sort[j] = temp
@@ -465,7 +467,7 @@ function timKiemNangCao() {
         let tmp = []
     for (i = 0; i < product_sort.length; i++) {
         let aLoai = product_sort[i].type;
-        let aGia = parseFloat(product_sort[i].price.replace('đ',''))*1000000
+        let aGia = parseInt(product_sort[i].price.replace('đ',''))*1000000
         console.log(aGia)
         let aTen = product_sort[i].name;
 
@@ -498,6 +500,7 @@ function ChangeModalPicture(e){
 }
 
 function changeProducts(id) {
+    alert("Click")
     var tabs = document.querySelectorAll(".menu-best-sale-title-item")
     for (var i=0; i<tabs.length; i++){
         tabs[i].style.background = "white"
@@ -505,7 +508,7 @@ function changeProducts(id) {
     }
     document.getElementById(id).style.background = '#343434' 
     document.getElementById(id).style.color = 'white'
-   var product = localStorage.getItem('product') ? JSON.parse(localStorage.getItem('product')) : []
+   var product = localStorage.getItem('products') ? JSON.parse(localStorage.getItem('products')) : []
    var tmp = [];
    var count = 0;
    var j = 0;
@@ -517,7 +520,7 @@ function changeProducts(id) {
            count++
         }
    }
-
+   console.log(product)
    if(localStorage.getItem('tmp')==null){
         localStorage.setItem('tmp', JSON.stringify(tmp))
    }
@@ -541,9 +544,8 @@ function handlePage(key , tmp) {
           <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
           <div class="menu-best-sale-content-item-img">
           <img src= ${perPost[i].anh} alt="" class="product-img">
-                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' , '${perPost[i].giacu}', '${perPost[i].giamoi}', '${perPost[i].anh}', '${perPost[i].anh1}' , '${perPost[i].anh2}','${perPost[i].anh3}' )"></i>
-                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].giamoi}')"></i>
-                 <h5 class="discount">-${perPost[i].giamgia}</h5>
+                 <i class='bx bx-bullseye product-icon'onclick="ModalProduct('${perPost[i].anh}' , '${perPost[i].ten}' , '${perPost[i].price}',' )"></i>
+                 <i class='bx bx-shopping-bag product-icon btn-add' onclick="ModalCart('${perPost[i].anh}', '${perPost[i].ten}', '${perPost[i].price}')"></i>
           </div>
   
           <div class="menu-best-sale-content-item-content">
