@@ -677,53 +677,6 @@ function ModalCart(anh,ten,gia){
     updateCart()
 }
 
-function removeCart(e) {
-    e.parentElement.parentElement.parentElement.parentElement.remove()
-    var x = document.getElementsByClassName('cart-row')
-    if(x.length== 0 ){
-        document.getElementsByClassName('emty-cart')[0].classList.add('active')
-        var a = document.querySelectorAll('.cart-table-list tr')
-        for(var i=0;i<a.length;i++){
-             var b = a[i]
-             b.style.display = 'none'
-        }
-   }else {
-       document.getElementsByClassName('emty-cart')[0].classList.remove('active')
-   }
-   updateCart()
-}
-
-function updateCart() {
-    var cartItemList = document.getElementsByClassName('cart-table-list')
-    for(let i = 0; i < cartItemList.length; i++){
-         var textQuantity = document.querySelector('.cart-shopping-top-right-item p span')
-         console.log(textQuantity)
-              var cartRows = cartItemList[i].getElementsByClassName('cart-row')
-              var total = 0 ;
-              for(let i = 0; i < cartRows.length; i++) {
-                   var cartRow = cartRows[i]
-                   var quantityElm = cartRow.getElementsByClassName('quantityCart')[0]
-                        var priceElm = cartRow.querySelector('#price')
-                        var pricetotal = cartRow.querySelector('#price-total')
-                        var price = parseFloat(priceElm.innerText.replace('đ', ''))
-                        var quantity = quantityElm.value
-                        
-                        total = (total + (price * quantity))
-                        pricetotal.innerHTML = `${((price *quantity)*1000000).toFixed(0)}đ`
-                   
-              }
-             
-            total = (total*1000000)
-            var x = Math.round(total)
-    }
-
-    document.querySelector(".sum-total h3").innerHTML = `${x}đ `
-    document.getElementById("number-total").innerHTML = `${x}đ `
-    document.getElementsByClassName('cart-info')[0].innerHTML = cartRows.length
-    document.getElementById('length-num').innerHTML = cartRows.length
-    
-}
-
 // var products = [
 //     {
 //         type: "kim cương",
@@ -1010,7 +963,7 @@ function nextPage(type, current) {
                         >
                     </small>
                     <small class="w-50 text-center py-2">
-                        <a class="text-body" href="" onclick="addItemToCart()"
+                        <a class="text-body" href="" onclick="addItemToCart(${products[i].id})"
                         ><i class="fa fa-shopping-bag text-primary me-2"></i>Add
                         to cart</a
                         >
@@ -1028,6 +981,16 @@ function nextPage(type, current) {
     }
 
     return {content: productsreturn, index: current + k};
+}
+
+let cart = [];
+function addItemToCart(id) {
+    let get_item_lc = localStorage.getItem('cart');
+    if(get_item_lc){
+        cart = JSON.parse(get_item_lc);
+    }
+    cart.push(id);
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 let userFeedback = [];
