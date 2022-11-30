@@ -400,7 +400,7 @@ function btnSearch(){
 }
 
 //Enter search
-const node = document.getElementsByClassName("navbar-search-input")[0];
+const node = document.getElementsByClassName("search-click")[0];
 node.addEventListener("keyup", function (event) {
     if (event.key === "Enter") {
         timKiem();
@@ -931,7 +931,7 @@ function updateCart() {
 //ghê, github lun =))
 //localStorage.setItem('product', products);
 
-let products = [];
+
 
 function Pagination() {
     next("kim cương", 1);
@@ -1051,13 +1051,12 @@ function getinforUser(e) {
         window.location = 'index.html';
     }
 }
-
+let products = [];
 window.onload = function() {
     let get_item_lc = localStorage.getItem('products');
     if(get_item_lc){
         products = JSON.parse(get_item_lc);
     }
-
     Pagination();
     CreateAdmin();
     keepitreal();
