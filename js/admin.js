@@ -19,9 +19,15 @@ function thugon() {
     add = 0;
 }
 
-function random() {
-    var rd = Math.floor(Math.random() * 10000);
-    var msp = document.getElementById("masp").value;
+function thugonedit() {
+    document.getElementById("masp").value = "";
+    document.getElementById("tensp").value = "";
+    document.getElementById("addimg").value = "";
+    document.getElementById("pic").innerHTML = "";
+    document.getElementById("giasp").value = "";
+    document.getElementById("editfix").innerHTML = "Cập nhật sản phẩm";
+    document.getElementById("editProduct").style.display = "none";
+    add = 0;
 }
 
 // let products = [];
@@ -301,36 +307,7 @@ function them(){
     localStorage.setItem("products", JSON.stringify(products));
     alert("added");
     showProduct();
-
-    // let get_item_lc = localStorage.getItem("products");
-    // if(id == ''||type == ''||name == ''||price == ''){
-    //     alert("Mời nhập đủ thông tin để thêm sản phẩm ");
-    // } else {
-    //     if(!checkID(id)) {
-    //         if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
-    //             products.push(product_item);        //thì add sp mới vào lần đầu tiên
-    //         }else{                  //local đã có sản phẩm
-    //             products = JSON.parse(get_item_lc);             //móc sp từ local ra
-    //             products.push(product_item);                    //add thêm sp mới vào mảng
-    //         }
-    //         alert("Đã thêm sản phẩm");
-    //         localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
-    //         alert("hien thi: " + products.length);
-    //         showProduct();
-    //     }else { 
-    //         alert("Trùng mã sản phẩm");
-    //     }
-    // }
     
-}
-
-
-function checkID(id) {
-    for (var i = 0; i < products.length; i++) {
-        if(products[i].id == id) {
-            return true;
-        }
-    }
 }
 
 function showProduct(){
@@ -388,11 +365,13 @@ let product1 = new product();
 
 let add = 0;
 function sua(id) {
+    document.getElementById("editProduct").style.display = "block";
     alert("đang sửa")
     for (var i = 0; i < products.length; i++) {
-        if (list[i].productId == id) {
-            product1 = products[i];
+        if (products[i].productId == id) {
+            product1 = products[i];console.log(product1.name)
             break;
+            
             // document.getElementById("masp").value = list[i].id;
             // document.getElementById("theloai").value = list[i].type;
             // document.getElementById("tensp").value = list[i].name;
@@ -407,8 +386,8 @@ function sua(id) {
     document.getElementById("pic").innerHTML = '<img src="' + product1.img + '"style="width:100px;height:100px">';
     document.getElementById("giasp").value = product1.price;
     
-    document.getElementById("add").setAttribute("style", "opacity:1");
-    document.getElementById("updatefix").innerHTML = "Cập nhật";
+    document.getElementById("editProduct").setAttribute("style", "opacity:1");
+    document.getElementById("editfix").innerHTML = "Cập nhật";
     add = 2;
 }
 
