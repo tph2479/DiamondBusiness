@@ -259,6 +259,20 @@ var products = [
     }
 ];
 
+function addsp() {
+    console.log(add)
+    if (add == 0) {
+        // document.getElementById("addsp").setAttribute("style", "opacity:1");
+        document.getElementById("addsp").style.display= 'block';
+        add = 1;
+    } else if (add == 1) {
+        them();
+    } else if (add == 2) {
+        sua1();
+    }
+    showProduct();
+}
+
 function createProduct() {
     if(localStorage.getItem('products')===null) {
         localStorage.setItem('products',JSON.stringify(products));
@@ -380,6 +394,7 @@ function sua(id) {
             // document.getElementById("pic").value = list[i].img;
         }
     }
+    console.log(product1)
     document.getElementById("masp").value = product1.id;
     document.getElementById("theloai").value = product1.type;
     document.getElementById("tensp").value = product1.name;
@@ -387,8 +402,34 @@ function sua(id) {
     document.getElementById("giasp").value = product1.price;
     
     document.getElementById("add").setAttribute("style", "opacity:1");
-    document.getElementById("addnfix").innerHTML = "Cập nhật";
+    document.getElementById("updatefix").innerHTML = "Cập nhật";
     add = 2;
+}
+
+function sua1() {
+    let productId = document.getElementById("masp").value;
+    let brand = document.getElementById("theloai").value;
+    let name = document.getElementById("tensp").value;
+    let img = document.getElementById("addimg").value;
+    if (img == "") {
+        img = product1.img;
+    } else {
+        img = 'img/' + img.slice(12);
+    }
+    let price = document.getElementById("giasp").value;
+    for (let i = 0; i < productArray.length; i++) {
+        if (productArray[i].productId == productId) {
+            productArray[i].brand = brand;
+            productArray[i].name = name;
+            productArray[i].img = img;
+            productArray[i].price = price;
+            break;
+        }
+    }
+    window.localStorage.removeItem("products");
+    localStorage.setItem('products', JSON.stringify(productArray));
+    showproduct();
+    thugon();
 }
 
 window.onload = function() {

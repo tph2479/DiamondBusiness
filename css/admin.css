@@ -13,6 +13,22 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.input-group {
+    position: relative;
+    display: flex;
+}
+
+.form-group .form-control {
+    padding: 4px;
+    margin-top: 4px;
+    border-radius: 3px;
+    border-color: #D6EFE9;
+   
+}
+.input-group .form-control:hover {
+    z-index: 3
+}
+
 #xacnhanxoa {
     display: none;
     position: fixed;
