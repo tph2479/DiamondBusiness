@@ -1212,13 +1212,15 @@ function nextPage(type, current) {
     return {content: productsreturn, index: current + k};
 }
 
-let cart = [];
+var cart = [];
+
 function addItemToCart(id) {
-    let get_item_lc = localStorage.getItem('cart');
-    if(get_item_lc){
-        cart = JSON.parse(get_item_lc);
-    }
+    // let get_item_lc = localStorage.getItem('cart');
+    // if(get_item_lc){
+    //     cart = JSON.parse(get_item_lc);
+    // }
     cart.push(id);
+    alert(cart);
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
@@ -1242,6 +1244,80 @@ function getinforUser(e) {
     }
 }
 
+function get_product_item(id) {
+    console.log(products);
+    console.log(id);
+    for(let i = 0; i < products.length;i++) {
+        if(products[i].id == id)
+            return i;
+    }
+
+    return null;
+}
+
+function giohang() {
+    let get_item_lc = localStorage.getItem('cart');
+    if(get_item_lc){
+        cart = JSON.parse(get_item_lc);
+    }
+
+    let htmlcontent = `
+    <tr> 
+        <th width="480px" height="40px" >Sản phẩm</th>
+        <th  width= "170px">Đơn giá</th>
+        <th width= "170px">Số lượng</th>
+        <th width= "170px">Thành tiền</th>
+    </tr>`;
+    
+    for(let i = 0; i < cart.length; i++) {
+        
+        let productitemindex = get_product_item(cart[i]);
+        if(productitemindex === null) {
+            alert("null")
+            continue;
+        }
+
+        alert(productitemindex);
+
+        let item = `
+        <tr>
+            <td width = "480px" height = "150px">
+                <div class="img-wrapper">
+                    <div class="cart-img">
+                        <img src="./img/${products[productitemindex].img}" alt="">
+                    </div>
+                    <div class="cart-content">
+                        <p class = 'namesp' >${products[productitemindex].name}</p>
+                        <a onclick = "removeCart()" href="#">Bỏ sản phẩm</a>
+                    </div>
+                </div>
+            </td>
+            
+
+                <td width= "170px">
+                    <h3 id="price" class="price-new">
+                        ${products[productitemindex].price}
+                    </h3>
+                </td>
+            
+                <td width ="170px">
+                        <input onchange = "updateCart()" class="quantityCart" type="number" min="1" value="1">
+                </td>
+            
+                <td width ="170px">
+                        <h3 id="price-total" class="price-new text-center price-modal">
+                        400000
+                        </h3>
+                </td>
+            </tr>`;
+            
+            htmlcontent += item;
+    }
+
+    document.getElementById("products-cart").innerHTML = htmlcontent;
+    document.getElementById('modal-cart').style.display='block';
+}
+
 window.onload = function() {
     let get_item_lc = localStorage.getItem('products');
     if(get_item_lc){
@@ -1249,6 +1325,7 @@ window.onload = function() {
     } else {
         localStorage.setItem("products", JSON.stringify(products));
     }
+    cart = [];
     Pagination();
     CreateAdmin();
     keepitreal();

@@ -122,7 +122,7 @@
             <a
               class="btn-sm-square bg-white rounded-circle ms-3"
               href="#"
-              onclick="document.getElementById('modal-cart').style.display='block'"
+              onclick="giohang()"
             >
               <small class="fa fa-shopping-bag text-body"><spanc class="cart-info" >0</spanc></small>
             </a>
@@ -279,46 +279,46 @@
     <div class="modal-wrapper">
         <div class="modal-cart-bottom">
             <div class="cart-table">
-                <table class="cart-table-list">
+                <table class="cart-table-list" id="products-cart">
                     <img src="./img/empty-cart.png" alt="" class="emty-cart">
+                    
                     <tr> 
                         <th width="480px" height="40px" >Sản phẩm</th>
                         <th  width= "170px">Đơn giá</th>
                         <th width= "170px">Số lượng</th>
                         <th width= "170px">Thành tiền</th>
                     </tr>
-                    <td width = "480px" height = "150px">
-                      <div class="img-wrapper">
-                          <div class="cart-img">
-                              <img src="./img/product-1.jpg" alt="">
+                    
+                    <tr>
+                      <td width = "480px" height = "150px">
+                        <div class="img-wrapper">
+                            <div class="cart-img">
+                                <img src="./img/product-1.jpg" alt="">
+                            </div>
+                            <div class="cart-content">
+                                <p class = 'namesp' >Nhẫn</p>
+                                <a onclick = "removeCart()" href="#">Bỏ sản phẩm</a>
+                            </div>
+                  
                           </div>
-                          <div class="cart-content">
-                              <p class = 'namesp' >Nhẫn</p>
-                              <a onclick = "removeCart(this)" href="#">Bỏ sản phẩm</a>
-                          </div>
-                
-                        </div>
-                    </td>
-                
-                    <td width= "170px">
-                          <h3 id="price" class="price-new">
-                            400000
-                          </h3>
-                
-                    </td>
-                
-                    <td width ="170px">
-                
-                            <input onchange = "updateCart()" class="quantityCart" type="number" min="1" value="1">
-                    </td>
-                
-                    <td width ="170px">
-                            <h3 id="price-total" class="price-new text-center price-modal">
+                      </td>
+                  
+                      <td width= "170px">
+                            <h3 id="price" class="price-new">
                               400000
                             </h3>
-                    </td>
-              
+                      </td>
                   
+                      <td width ="170px">
+                              <input onchange = "updateCart()" class="quantityCart" type="number" min="1" value="1">
+                      </td>
+                  
+                      <td width ="170px">
+                              <h3 id="price-total" class="price-new text-center price-modal">
+                                400000
+                              </h3>
+                      </td>
+                  </tr>
                 </table>
             </div>
         </div>
