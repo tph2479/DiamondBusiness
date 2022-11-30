@@ -4,7 +4,7 @@ function trangchu() {
 
 function swappic() {
     let img = document.getElementById("addimg").value;
-    img = 'img/' + img.slice(12);
+    img = '' + img.slice(12);
     document.getElementById("pic").innerHTML = '<img src="' + img + '"style="width:30%">';
 }
 
@@ -284,8 +284,7 @@ function them(){
     let type = document.getElementById("theloai").value;
     let name = document.getElementById("tensp").value;
     let img = document.getElementById("addimg").value;
-    console.log(img);
-    img = 'img/' + img.slice(15);
+    // img = img.split("\\")[-1];
     let price = parseInt(document.getElementById("giasp").value);
     
     let product_item = {id, type, name, price, img}; //Tạo obj sản phẩm
