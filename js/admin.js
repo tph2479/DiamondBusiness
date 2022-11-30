@@ -302,6 +302,7 @@ function them(){
             }
             alert("Đã thêm sản phẩm");
             localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
+            alert(products);
             showProduct();
         }else { 
             alert("Trùng mã sản phẩm");
@@ -310,11 +311,10 @@ function them(){
     
 }
 
-var list = this.products;
 
 function checkID(id) {
-    for (var i = 0; i < list.length; i++) {
-        if(list[i].id == id) {
+    for (var i = 0; i < products.length; i++) {
+        if(products[i].id == id) {
             return true;
         }
     }
@@ -346,8 +346,8 @@ let k;
 function xoa(id) {
     // var list = this.products;
     document.getElementById("xacnhanxoa").style.display = "block";
-    for (let i = 0; i < list.length; i++) {
-        if (list[i].productId == id) {
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].productId == id) {
             k == i;
             break;
         }
@@ -356,9 +356,9 @@ function xoa(id) {
 
 function xacnhan() {
     // var list = this.products;
-    list.splice(k, 1);
+    products.splice(k, 1);
     window.localStorage.removeItem("products");
-    localStorage.setItem('products', JSON.stringify(list));
+    localStorage.setItem('products', JSON.stringify(products));
     showproduct();
     document.getElementById("xacnhanxoa").style.display = "none";
 }
@@ -380,9 +380,9 @@ let product1 = new product();
 let add = 0;
 function sua(id) {
     alert("đang sửa")
-    for (var i = 0; i < list.length; i++) {
+    for (var i = 0; i < products.length; i++) {
         if (list[i].productId == id) {
-            product1 = list[i];
+            product1 = products[i];
             break;
             // document.getElementById("masp").value = list[i].id;
             // document.getElementById("theloai").value = list[i].type;
