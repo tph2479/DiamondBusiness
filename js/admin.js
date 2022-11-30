@@ -25,7 +25,7 @@ function random() {
 }
 
 // let products = [];
-var products = [
+let products = [
     {
         id: 01,
         type: "kim cương",
@@ -289,24 +289,28 @@ function them(){
     
     let product_item = {id: id, type: type, name: name, img: img, price: price}; //Tạo obj sản phẩm
 
-    let get_item_lc = localStorage.getItem("products");
-    if(id == ''||type == ''||name == ''||price == ''){
-        alert("Mời nhập đủ thông tin để thêm sản phẩm ");
-    } else {
-        if(!checkID(id)) {
-            if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
-                products.push(product_item);        //thì add sp mới vào lần đầu tiên
-            }else{                  //local đã có sản phẩm
-                products = JSON.parse(get_item_lc);             //móc sp từ local ra
-                products.push(product_item);                    //add thêm sp mới vào mảng
-            }
-            alert("Đã thêm sản phẩm");
-            localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
-            showProduct();
-        }else { 
-            alert("Trùng mã sản phẩm");
-        }
-    }
+    products.push(product_item);
+    localStorage.setItem("products", JSON.stringify(products));
+
+    // let get_item_lc = localStorage.getItem("products");
+    // if(id == ''||type == ''||name == ''||price == ''){
+    //     alert("Mời nhập đủ thông tin để thêm sản phẩm ");
+    // } else {
+    //     if(!checkID(id)) {
+    //         if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
+    //             products.push(product_item);        //thì add sp mới vào lần đầu tiên
+    //         }else{                  //local đã có sản phẩm
+    //             products = JSON.parse(get_item_lc);             //móc sp từ local ra
+    //             products.push(product_item);                    //add thêm sp mới vào mảng
+    //         }
+    //         alert("Đã thêm sản phẩm");
+    //         localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
+    //         alert("hien thi: " + products.length);
+    //         showProduct();
+    //     }else { 
+    //         alert("Trùng mã sản phẩm");
+    //     }
+    // }
     
 }
 

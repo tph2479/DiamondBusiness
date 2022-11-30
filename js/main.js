@@ -929,14 +929,7 @@ function updateCart() {
 //ghê, github lun =))
 //localStorage.setItem('product', products);
 
-// phân trang bằng onclick tham số được tạo động ví dụ next("vàng", 8) lấy tám trang tiếp theo của vàng
-
-var products = [];
-let get_item_lc = localStorage.getItem('products');
-if(get_item_lc){
-    products = JSON.parse(get_item_lc);
-}
-
+let products = [];
 
 function Pagination() {
     next("kim cương", 1);
@@ -1058,6 +1051,11 @@ function getinforUser(e) {
 }
 
 window.onload = function() {
+    let get_item_lc = localStorage.getItem('products');
+    if(get_item_lc){
+        products = JSON.parse(get_item_lc);
+    }
+
     Pagination();
     CreateAdmin();
     keepitreal();
