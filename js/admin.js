@@ -356,29 +356,38 @@ function huy() {
     document.getElementById("xacnhanxoa").style.display = "none";
 }
 
-// let product1 = new product();
+function product(id, type, name, img, price) {
+    this.id = id;
+    this.type = type;
+    this.name = name;
+    this.img = img;
+    this.price = price;
+}
 
+let product1 = new product();
+
+let add = 0;
 function sua(id) {
-    document.getElementById("addsp").style.display="block";
+    alert("đang sửa")
     for (var i = 0; i < list.length; i++) {
         if (list[i].productId == id) {
-            // product1 = list[i];
-            // break;
-            document.getElementById("masp").value = list[i].id;
-            document.getElementById("theloai").value = list[i].type;
-            document.getElementById("tensp").value = list[i].name;
-            document.getElementById("giasp").value = list[i].price;
-            document.getElementById("pic").value = list[i].img;
+            product1 = list[i];
+            break;
+            // document.getElementById("masp").value = list[i].id;
+            // document.getElementById("theloai").value = list[i].type;
+            // document.getElementById("tensp").value = list[i].name;
+            // document.getElementById("giasp").value = list[i].price;
+            // document.getElementById("pic").value = list[i].img;
         }
     }
-    // document.getElementById("masp").value = product1.productId;
-    // document.getElementById("theloai").value = product1.brand;
-    // document.getElementById("tensp").value = product1.name;
-    // document.getElementById("pic").innerHTML = '<img src="' + product1.img + '"style="width:100px;height:100px">';
-    // document.getElementById("giasp").value = product1.price;
+    document.getElementById("masp").value = product1.id;
+    document.getElementById("theloai").value = product1.type;
+    document.getElementById("tensp").value = product1.name;
+    document.getElementById("pic").innerHTML = '<img src="' + product1.img + '"style="width:100px;height:100px">';
+    document.getElementById("giasp").value = product1.price;
     
-    // document.getElementById("addsp").setAttribute("style", "opacity:1");
-    // document.getElementById("addnfix").innerHTML = "Cập nhật";
+    document.getElementById("add").setAttribute("style", "opacity:1");
+    document.getElementById("addnfix").innerHTML = "Cập nhật";
     add = 2;
 }
 
