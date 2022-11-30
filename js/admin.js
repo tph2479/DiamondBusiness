@@ -359,12 +359,8 @@ let k;
 function xoa(id) {
     // var list = this.products;
     document.getElementById("xacnhanxoa").style.display = "block";
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].productId == id) {
-            k == i;
-            break;
-        }
-    }
+    
+    products.splice(products.indexOf(id), 1);
 }
 
 function xacnhan() {

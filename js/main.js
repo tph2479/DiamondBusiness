@@ -679,204 +679,438 @@ function ModalCart(anh,ten,gia){
 
 let products = [
     {
+        id: 01,
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: 100130000
     },
     {
+        id: 02,
         type: "kim cương",
         name: "Nhẫn DJR3259",
         img: "product-2.jpg",
         price: 58970000
     },
     {
+        id: 03,
         type: "kim cương",
         name: "Hoa tai DJE1137",
         img: "product-3.jpg",
         price: 89700000
     },
     {
+        id: 04,
         type: "kim cương",
         name: "Hoa tai DJE1136",
         img: "product-4.jpg",
         price: 71180000
     },
     {
+        id: 05,
         type: "kim cương",
         name: "Mặt dây kim cương FDCP0300",
         img: "product-5.jpg",
         price: 42830000
     },
     {
+        id: 06,
         type: "kim cương",
         name: "Mặt dây kim cương FDCP0205",
         img: "product-6.jpg",
         price: 44360000
     },
     {
+        id: 07,
         type: "kim cương",
         name: "Nhẫn Kim cương FDR0018",
         img: "product-7.jpg",
         price: 31500000
     },
     {
+        id: 08,
         type: "kim cương",
         name: "Hoa tai kim cương FDE0015",
         img: "product-8.jpg",
         price: 44490000
     },
     {
+        id: 09,
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: 100130000
     },
     {
+        id: 10,
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: 100130000
     },
     {
+        id: 11,
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: 100130000
     },
     {
+        id: 12,
         type: "kim cương",
         name: "Lắc/vòng DJB177",
         img: "product-1.jpg",
         price: 100130000
     },
     {
+        id: 13,
         type: "vàng",
         name: "Vòng charrm CB60035DD",
         img: "product-25.jpg",
         price: 3900000
     },
     {
+        id: 14,
         type: "vàng",
         name: "Ghim cài áo Cúc họa mi LH60011",
         img: "product-26.jpg",
         price: 9090000
     },
     {
+        id: 15,
         type: "vàng",
         name: "Dây vàng collier LN000256",
         img: "product-27.jpg",
         price: 5630000
     },
     {
+        id: 16,
         type: "vàng",
         name: "Ghim cài áo Cúc họa mi LH60011",
         img: "product-28.jpg",
         price: 5590000
     },
     {
+        id: 17,
         type: "vàng",
         name: "Dây chữ Vạn FP60695",
         img: "product-29.jpg",
         price: 4100000
     },
     {
+        id: 18,
         type: "vàng",
         name: "Dây chữ Vạn MP6023",
         img: "product-31.jpg",
         price: 4200000
     },
     {
+        id: 19,
         type: "vàng",
         name: "Lắc tay LB90120",
         img: "product-31.jpg",
         price: 18900000
     },
     {
+        id: 20,
         type: "vàng",
         name: "Lắc tay LB90122",
         img: "product-32.jpg",
         price: 9280000
     },
     {
+        id: 21,
         type: "đá màu",
         name: "Hoa tai Citrine GJE473",
         img: "product-33.jpg",
         price: 9280000
     },
     {
+        id: 22,
         type: "đá màu",
         name: "Nhẫn Ruby GJR468",
         img: "product-34.jpg",
         price: 10930000
     },
     {
+        id: 23,
         type: "đá màu",
         name: "Dây chuyền Emerald GJCP697",
         img: "product-35.jpg",
         price: 31270000
     },
     {
+        id: 24,
         type: "đá màu",
         name: "Lắc/vòng đá FGB14484",
         img: "product-36.jpg",
         price: 223770000
     },
     {
+        id: 25,
         type: "đá màu",
         name: "Lắc/vòng đá FGB14484",
         img: "product-36.jpg",
         price: 223770000
     },
     {
+        id: 26,
         type: "đá màu",
         name: "Lắc/vòng đá FGB14484",
         img: "product-36.jpg",
         price: 223770000
     },
     {
+        id: 27,
         type: "đá màu",
         name: "Lắc/vòng đá FGB14484",
         img: "product-36.jpg",
         price: 223770000
     },
     {
+        id: 28,
         type: "đá màu",
         name: "Bông tai Peridot NA722-WG",
         img: "product-37.jpg",
         price: 9930000
     },
     {
+        id: 29,
         type: "đá màu",
         name: "Nhẫn Topaz NA722-WG",
         img: "product-38.jpg",
         price: 7000000
     },
     {
+        id: 30,
         type: "đá màu",
         name: "Hoa tai Ruby GJE706",
         img: "product-39.jpg",
         price: 16920000
     },
     {
+        id: 31,
         type: "đá màu",
         name: "Hoa tai Ruby GJE706",
         img: "product-39.jpg",
         price: 16920000
     },
     {
+        id: 32,
         type: "đá màu",
         name: "Hoa tai Ruby GJE706",
         img: "product-39.jpg",
         price: 16920000
     },
     {
+        id: 33,
         type: "đá màu",
         name: "Nhẫn Topaz GJR349",
         img: "product-40.jpg",
         price: 7010000
     }
 ];
+
+// let products = [
+//     {
+//         type: "kim cương",
+//         name: "Lắc/vòng DJB177",
+//         img: "product-1.jpg",
+//         price: 100130000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Nhẫn DJR3259",
+//         img: "product-2.jpg",
+//         price: 58970000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Hoa tai DJE1137",
+//         img: "product-3.jpg",
+//         price: 89700000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Hoa tai DJE1136",
+//         img: "product-4.jpg",
+//         price: 71180000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Mặt dây kim cương FDCP0300",
+//         img: "product-5.jpg",
+//         price: 42830000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Mặt dây kim cương FDCP0205",
+//         img: "product-6.jpg",
+//         price: 44360000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Nhẫn Kim cương FDR0018",
+//         img: "product-7.jpg",
+//         price: 31500000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Hoa tai kim cương FDE0015",
+//         img: "product-8.jpg",
+//         price: 44490000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Lắc/vòng DJB177",
+//         img: "product-1.jpg",
+//         price: 100130000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Lắc/vòng DJB177",
+//         img: "product-1.jpg",
+//         price: 100130000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Lắc/vòng DJB177",
+//         img: "product-1.jpg",
+//         price: 100130000
+//     },
+//     {
+//         type: "kim cương",
+//         name: "Lắc/vòng DJB177",
+//         img: "product-1.jpg",
+//         price: 100130000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Vòng charrm CB60035DD",
+//         img: "product-25.jpg",
+//         price: 3900000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Ghim cài áo Cúc họa mi LH60011",
+//         img: "product-26.jpg",
+//         price: 9090000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Dây vàng collier LN000256",
+//         img: "product-27.jpg",
+//         price: 5630000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Ghim cài áo Cúc họa mi LH60011",
+//         img: "product-28.jpg",
+//         price: 5590000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Dây chữ Vạn FP60695",
+//         img: "product-29.jpg",
+//         price: 4100000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Dây chữ Vạn MP6023",
+//         img: "product-31.jpg",
+//         price: 4200000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Lắc tay LB90120",
+//         img: "product-31.jpg",
+//         price: 18900000
+//     },
+//     {
+//         type: "vàng",
+//         name: "Lắc tay LB90122",
+//         img: "product-32.jpg",
+//         price: 9280000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Hoa tai Citrine GJE473",
+//         img: "product-33.jpg",
+//         price: 9280000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Nhẫn Ruby GJR468",
+//         img: "product-34.jpg",
+//         price: 10930000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Dây chuyền Emerald GJCP697",
+//         img: "product-35.jpg",
+//         price: 31270000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Lắc/vòng đá FGB14484",
+//         img: "product-36.jpg",
+//         price: 223770000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Lắc/vòng đá FGB14484",
+//         img: "product-36.jpg",
+//         price: 223770000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Lắc/vòng đá FGB14484",
+//         img: "product-36.jpg",
+//         price: 223770000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Lắc/vòng đá FGB14484",
+//         img: "product-36.jpg",
+//         price: 223770000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Bông tai Peridot NA722-WG",
+//         img: "product-37.jpg",
+//         price: 9930000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Nhẫn Topaz NA722-WG",
+//         img: "product-38.jpg",
+//         price: 7000000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Hoa tai Ruby GJE706",
+//         img: "product-39.jpg",
+//         price: 16920000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Hoa tai Ruby GJE706",
+//         img: "product-39.jpg",
+//         price: 16920000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Hoa tai Ruby GJE706",
+//         img: "product-39.jpg",
+//         price: 16920000
+//     },
+//     {
+//         type: "đá màu",
+//         name: "Nhẫn Topaz GJR349",
+//         img: "product-40.jpg",
+//         price: 7010000
+//     }
+// ];
 
 
 function Pagination() {
@@ -987,8 +1221,6 @@ function addItemToCart(id) {
     cart.push(id);
     localStorage.setItem("cart", JSON.stringify(cart));
 }
-
-
 
 let userFeedback = [];
 function getinforUser(e) {
