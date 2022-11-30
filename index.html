@@ -287,18 +287,45 @@
                         <th width= "170px">Số lượng</th>
                         <th width= "170px">Thành tiền</th>
                     </tr>
-    
-                   
-
-
-                    
+                    <td width = "480px" height = "150px">
+                      <div class="img-wrapper">
+                          <div class="cart-img">
+                              <img src="./img/product-1.jpg" alt="">
+                          </div>
+                          <div class="cart-content">
+                              <p class = 'namesp' >Nhẫn</p>
+                              <a onclick = "removeCart(this)" href="#">Bỏ sản phẩm</a>
+                          </div>
+                
+                        </div>
+                    </td>
+                
+                    <td width= "170px">
+                          <h3 id="price" class="price-new">
+                            400000
+                          </h3>
+                
+                    </td>
+                
+                    <td width ="170px">
+                
+                            <input onchange = "updateCart()" class="quantityCart" type="number" min="1" value="1">
+                    </td>
+                
+                    <td width ="170px">
+                            <h3 id="price-total" class="price-new text-center price-modal">
+                              400000
+                            </h3>
+                    </td>
+              
+                  
                 </table>
             </div>
         </div>
 
         <div class="sum-total">
             <p>Tổng tiền thanh toán: </p>
-            <h5 id="number-total">0</h5>
+            <h5 id="number-total">400000</h5>
         </div>
 
         <div class="cart-button">
@@ -466,59 +493,6 @@
                   <button>3</button>
             </div>
         </div>
-    </section>
-
-    <section id="best-sale" class="best-sale">
-      <div class="container">
-          <div class="section-title" >
-              <h3>TOP SẢN PHẨM BÁN CHẠY</h3>
-              <div class="title-line"></div>
-          </div>
-          <div class="menu-best-sale-title row">
-              
-              <div id="vàng" class="menu-best-sale-title-item col-sm-12"  onclick="changeProducts('vàng' , this)">
-                  <h3>Vàng</h3>
-              </div>
-
-              <div id="kim cương" class="menu-best-sale-title-item" onclick = "changeProducts('kim cương' , this)">
-                  <h3>Kim cương</h3>
-              </div>
-
-
-              <div id="đá màu" class="menu-best-sale-title-item" onclick = "changeProducts('đá màu' , this)">
-                  <h3>Đá màu</h3>
-              </div>
-          </div>
-         
-
-          <div id="content"  class="menu-best-sale-content row">
-              <!-- <div class="menu-best-sale-content-item col-3 col-md-4 col-sm-6">
-                         <div class="menu-best-sale-content-item-img">
-                                <img src="./img/nam1.jpg" alt="" class="product-img">
-                                <i class='bx bx-bullseye product-icon eye'onclick="ModalProduct()"></i>
-                                <i class='bx bx-shopping-bag product-icon'</i>
-                                <h5 class="discount"></h5>
-                         </div>
-
-                         <div class="menu-best-sale-content-item-content">
-                              <h3 class="item-content-name">Black Pink</h3>
-                              <div class="price">
-                                  <div class="price-old price-item"><del>4.500.000đ</del></div>
-                                  <div class="price-new price-item">3.200.000đ</div>
-                              </div>
-                         </div>
-              </div> -->
-             
-          </div>
-
-           <div class="pagination">
-               <button>1</button >
-               <button id="pagination-2" >2</button> 
-           </div>
-              
-             
-      
-      </div>
     </section>
 
     <div id="modal-product" class="modal-product">

@@ -727,7 +727,7 @@ span {
 }
 
 .cart-table-list tr {
-  display: none;
+  /* display: none; */
 }
 
 td {
