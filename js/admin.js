@@ -284,15 +284,15 @@ function them(){
     let type = document.getElementById("theloai").value;
     let name = document.getElementById("tensp").value;
     let img = document.getElementById("addimg").value;
-    // img = img.split("\\")[-1];
+    img = img.split("\\")[img.split("\\").length - 1];
     let price = parseInt(document.getElementById("giasp").value);
     
-    let product_item = {id, type, name, price, img}; //Tạo obj sản phẩm
+    let product_item = {id: id, type: type, name: name, img: img, price: price}; //Tạo obj sản phẩm
 
     let get_item_lc = localStorage.getItem("products");
     if(id == ''||type == ''||name == ''||price == ''){
         alert("Mời nhập đủ thông tin để thêm sản phẩm ");
-    }else {
+    } else {
         if(!checkID(id)) {
             if(!get_item_lc){         //Nếu trong local chưa có sp nào (lần đầu thêm sp)
                 products.push(product_item);        //thì add sp mới vào lần đầu tiên
@@ -301,7 +301,6 @@ function them(){
                 products.push(product_item);                    //add thêm sp mới vào mảng
             }
             alert("Đã thêm sản phẩm");
-            window.location.reload();
             localStorage.setItem("products", JSON.stringify(products));   //lưu lại vào local
             showProduct();
         }else { 
@@ -326,17 +325,16 @@ function showProduct(){
     var table = 
         `<table id="" class="table">
             <tbody id="tbodySanPham">`;
-            for(var i = 0; i < list.length; i++) {
+            for(var i = 0; i < products.length; i++) {
                 table += `<tr>`;
-                table += `<td>` +list[i].id+ `</td>`;
-                table += `<td>` +list[i].type+ `</td>`;
-                table += `<td>` +list[i].name+ `</td>`;
-                table += `<td>` +list[i].price+ `</td>`;
-                table += `<td><img src="` +list[i].img+ `"style="witdh:100px;height:100px"></td>`;
-                table += '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua('+ list[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + list[i].id + ')"></td>';
+                table += `<td>` +products[i].id+ `</td>`;
+                table += `<td>` +products[i].type+ `</td>`;
+                table += `<td>` +products[i].name+ `</td>`;
+                table += `<td>` +products[i].price+ `</td>`;
+                table += `<td><img src="img/` +products[i].img+ `"style="witdh:100px;height:100px"></td>`;
+                table += '<td> <input  type="button" id="btsua" value="Sửa" onclick="sua('+ products[i].id + ')"><input type="button" id="btxoa" value="Xóa" onclick="xoa(' + products[i].id + ')"></td>';
                 table += `</tr>`;
             }
-
             table += `</tbody>
         </table>`;
         document.getElementById("tbodySanPham").innerHTML = table;
