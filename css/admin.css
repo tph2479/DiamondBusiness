@@ -204,12 +204,14 @@ h1 {
 
 #tbodySanPham td #btsua{
     background-color: rgba(1, 255, 255, 0.473);
+    cursor: pointer;
     border-radius: 40%;
     transition: 3s;
 }
 
 #tbodySanPham td #btxoa{
     border-radius: 40%;
+    cursor: pointer;
     background-color: red;
     transition: 3s;
 }
