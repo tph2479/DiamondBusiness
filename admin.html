@@ -52,6 +52,40 @@
 
         <div class="content">
 
+            <div class="showuser" id="showuser">
+                <form action=""class="form-user">
+                    <table id="" class="table">
+                        <thead id="thead">
+                            <tr>
+                                <th>STT</th>
+                                <th>Username</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Address</th>
+                                <th>TypeUser</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyUsers">
+            
+                        </tbody>
+                    </table>
+
+                    <div id="xacnhanxoa" style="z-index: 1;height: 30%;background-color: #8cc7ee;display: none;">
+                        <div style="margin-top: 10%; color: #1877f2; text-align: center;height: 40%;">Xác nhận xóa</div>
+                        <div style="height: 20%;"></div>
+                        <div style="float: left; margin-left: 20%;">
+                            <input class="form-control" type="submit" value="Xác nhận" onclick="xacnhan()">
+                        </div>
+                        <div style="float: right;margin-right: 20%;">
+                            <input class="form-control" type="submit" value="Hủy"  onclick="huy()">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
             <div class="input-group">
                 <input type="text" id="tukhoa" class="form-control" placeholder="Tìm kiếm sản phẩm...">
                 <button id="searchButton">
@@ -98,7 +132,7 @@
                 </form>
             </div>
 
-            <div class="showsp">
+            <div class="showsp" id="showsp">
                 <form action="" class="form-delsp">
 
                     <table id="" class="table">

@@ -371,12 +371,6 @@ function sua(id) {
         if (products[i].productId == id) {
             product1 = products[i];console.log(product1.name)
             break;
-            
-            // document.getElementById("masp").value = list[i].id;
-            // document.getElementById("theloai").value = list[i].type;
-            // document.getElementById("tensp").value = list[i].name;
-            // document.getElementById("giasp").value = list[i].price;
-            // document.getElementById("pic").value = list[i].img;
         }
     }
     console.log(product1)
@@ -417,7 +411,20 @@ function sua1() {
     thugon();
 }
 
+function innerProducts() {
+    
+}
+
+function innerUser() {
+
+}
+
+function innerRevenue() {
+    
+}
+
 window.onload = function() {
+    let user = localStorage.getItem('user');
     let get_item_lc = localStorage.getItem('products');
     if(get_item_lc){
         products = JSON.parse(get_item_lc);

@@ -266,6 +266,38 @@ td input{
     border: 1px solid #000000;
 }
 
+/* showuser */
+#tbodyUsers td{
+    text-align: center;
+}
+
+#tbodyUsers td #btsua{
+    background-color: rgba(1, 255, 255, 0.473);
+    cursor: pointer;
+    border-radius: 40%;
+    transition: 3s;
+}
+
+#tbodyUsers td #btxoa{
+    border-radius: 40%;
+    cursor: pointer;
+    background-color: red;
+    transition: 3s;
+}
+
+#tbodyUsers td #btsua:hover {
+    transition: 3s;
+    background-color: rgb(167, 237, 230);
+    border-radius: 50% ; 
+}
+
+#tbodyUsers td #btxoa:hover {
+    transition: 3s;
+    border-radius: 50%;
+    background-color: rgb(255, 64, 0);
+}
+
+
 .showProductedit {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
